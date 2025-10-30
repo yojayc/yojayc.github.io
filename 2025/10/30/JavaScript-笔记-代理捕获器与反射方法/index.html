@@ -1,0 +1,800 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="google-site-verification" content="u_A6aughwSIwEoiK7-4LkqHcXUG9a1IHGbVZVFsA7GM" />
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="YoJayC">
+  <meta name="keywords" content="yojayc, 技术博客, yojayc blog, 前端, JavaScript">
+  
+    <meta name="description" content="在代理对象上执行的任何一种操作，只会调用一个捕获处理程序，不存在重复捕获。 只要在代理上调用，所有捕获器都会拦截它们对应的反射 API 操作。 get()获取属性值的操作会调用 get() 捕获器，对应反射 API 方法 Reflect.get()  12345678910111213141516const myTarget &#x3D; &#123;&#125;;const proxy &#x3D; new Pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 笔记-代理捕获器与反射方法">
+<meta property="og:url" content="http://yojayc.github.io/2025/10/30/JavaScript-%E7%AC%94%E8%AE%B0-%E4%BB%A3%E7%90%86%E6%8D%95%E8%8E%B7%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="YoJayC">
+<meta property="og:description" content="在代理对象上执行的任何一种操作，只会调用一个捕获处理程序，不存在重复捕获。 只要在代理上调用，所有捕获器都会拦截它们对应的反射 API 操作。 get()获取属性值的操作会调用 get() 捕获器，对应反射 API 方法 Reflect.get()  12345678910111213141516const myTarget &#x3D; &#123;&#125;;const proxy &#x3D; new Pro">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-30T06:49:36.000Z">
+<meta property="article:modified_time" content="2025-10-30T09:26:37.760Z">
+<meta property="article:author" content="YoJayC">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>JavaScript 笔记-代理捕获器与反射方法 - YoJayC</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"yojayc.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YoJayC</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JavaScript 笔记-代理捕获器与反射方法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-30 14:49" pubdate>
+          2025年10月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">JavaScript 笔记-代理捕获器与反射方法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在代理对象上执行的任何一种操作，<mark>只会调用一个捕获处理程序<mark>，不存在重复捕获。</p>
+<p>只要在代理上调用，所有捕获器都会拦截它们对应的反射 <code>API</code> 操作。</p>
+<h2 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h2><p>获取属性值的操作会调用 <code>get()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.get()</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">		receiver: 代理对象或继承代理对象的对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">get</span>(<span class="hljs-params">target, property, receiver</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;get()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">get</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br>proxy.<span class="hljs-property">foo</span>;  <span class="hljs-comment">// get()</span><br></code></pre></td></tr></table></figure>
+
+<p><code>get()</code> 捕获器无返回值限制，会拦截 <code>proxy.property</code>、<code>proxy[property]</code>、<code>Object.create(proxy)[property]</code> 和 <code>Reflect.get(proxy, property, receiver)</code> 操作。</p>
+<ul>
+<li><p><code>target.property</code> <strong>不可写且不可配置</strong>，处理程序返回的值必须与 <code>target.property</code> 匹配</p>
+</li>
+<li><p><code>target.property</code> <strong>不可配置</strong>且 <code>[[Get]]</code> 为 <code>undefined</code>，处理程序的返回值也必须是 <code>undefined</code></p>
+</li>
+</ul>
+<h2 id="set"><a href="#set" class="headerlink" title="set()"></a>set()</h2><p>设置属性值的操作会调用 <code>set()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.set()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">		value: 要赋给属性的值</span><br><span class="hljs-comment">		receiver: 接收最初赋值的对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">set</span>(<span class="hljs-params">target, property, value, receiver</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;set()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">set</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br>proxy.<span class="hljs-property">foo</span> = <span class="hljs-string">&#x27;bar&#x27;</span>;  <span class="hljs-comment">// set()</span><br></code></pre></td></tr></table></figure>
+
+<p><code>set()</code> 捕获器返回 <code>true</code> 表示成功；返回 <code>false</code> 表示失败，严格模式会抛出 <code>TypeError</code>。会拦截 <code>proxy.property = value</code>、<code>proxy[property] = value</code>、<code>Object.create(proxy)[property] = value</code> 和 <code>Reflect.set(proxy, property, value, receiver)</code> 操作。</p>
+<ul>
+<li><p><code>target.property</code> <mark>不可写且不可配置<mark>，则不能修改目标属性的值</p>
+</li>
+<li><p><code>target.property</code> <mark>不可配置且 <code>[[Set]]</code> 特性为 <code>undefined</code><mark>，则不能修改目标属性的值</p>
+</li>
+</ul>
+<h2 id="has"><a href="#has" class="headerlink" title="has()"></a>has()</h2><p>在 <code>in</code> 操作符中会调用 <code>has()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.has()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">has</span>(<span class="hljs-params">target, property</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;has()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">has</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-string">&#x27;foo&#x27;</span> <span class="hljs-keyword">in</span> proxy;  <span class="hljs-comment">// has()</span><br></code></pre></td></tr></table></figure>
+
+<p><code>has()</code> 必须返回表示属性是否存在的布尔值，返回非布尔值会转为布尔值。会拦截 <code>property in proxy</code>、<code>property in Object.create(proxy)</code>、<code>with(proxy) {(property);}</code> 和 <code>Reflect.has(proxy, property)</code> 操作。</p>
+<ul>
+<li><p><code>target.property</code> <mark>存在且不可配置<mark>，处理程序必须返回 <code>true</code></p>
+</li>
+<li><p><code>target.property</code> <mark>存在且目标对象不可扩展<mark>，处理程序必须返回 <code>true</code></p>
+</li>
+</ul>
+<h2 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty()"></a>defineProperty()</h2><p>在 <code>Object.defineProperty()</code> 中会调用 <code>defineProperty()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.defineProperty()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">		descriptor: 包含可选的 enumerable、configurable、writable、value、get 和 set 定义的对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">defineProperty</span>(<span class="hljs-params">target, property, descriptor</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;defineProperty()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">defineProperty</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// defineProperty()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">defineProperty</span>(proxy, <span class="hljs-string">&#x27;foo&#x27;</span>, &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;bar&#x27;</span> &#125;);<br></code></pre></td></tr></table></figure>
+
+<p><code>defineProperty()</code> 必须返回表示属性是否存在的布尔值，返回非布尔值会转为布尔值。会拦截 <code>Object.defineProperty(proxy, property, descriptor)</code> 和 <code>Reflect.defineProperty(proxy, property, descriptor)</code> 操作。</p>
+<ul>
+<li><p>目标对象<mark>不可扩展<mark>，无法定义属性</p>
+</li>
+<li><p>目标对象有一个<mark>可配置的属性<mark>，不能添加同名的不可配置属性</p>
+</li>
+<li><p>目标对象有一个<mark>不可配置的属性<mark>，不能添加同名的可配置属性</p>
+</li>
+</ul>
+<h2 id="getOwnPropertyDescriptor"><a href="#getOwnPropertyDescriptor" class="headerlink" title="getOwnPropertyDescriptor()"></a>getOwnPropertyDescriptor()</h2><p>在 <code>Object.getOwnPropertyDescriptor()</code> 中会调用 <code>getOwnPropertyDescriptor()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.getOwnPropertyDescriptor()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">getOwnPropertyDescriptor</span>(<span class="hljs-params">target, property</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;getOwnPropertyDescriptor()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">getOwnPropertyDescriptor</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// getOwnPropertyDescriptor()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyDescriptor</span>(proxy, <span class="hljs-string">&#x27;foo&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p><code>getOwnPropertyDescriptor()</code> <mark>必须返回对象<mark>，在属性不存在时返回 <code>undefined</code>。会拦截 <code>Object.getOwnPropertyDescriptor(proxy, property)</code> 和 <code>Reflect.getOwnPropertyDescriptor(proxy, property)</code> 操作。</p>
+<ul>
+<li><p><code>target.property</code> <mark>存在且不可配置<mark>，必须返回一个表示该属性存在的对象</p>
+</li>
+<li><p><code>target.property</code> <mark>存在且可配置<mark>，必须返回表示该属性可配置的对象</p>
+</li>
+<li><p><code>target.property</code> <mark>存在且 <code>target</code> 不可扩展<mark>，必须返回一个表示该属性存在的对象</p>
+</li>
+<li><p><code>target.property</code> <mark>不存在且 <code>target</code> 不可扩展<mark>，必须返回 <code>undefined</code> 表示该属性不存在</p>
+</li>
+<li><p><code>target.property</code> <mark>不存在<mark>，不能返回表示该属性可配置的对象</p>
+</li>
+</ul>
+<h2 id="deleteProperty"><a href="#deleteProperty" class="headerlink" title="deleteProperty()"></a>deleteProperty()</h2><p>在 <code>delete</code> 操作符中会调用 <code>deleteProperty()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.deleteProperty()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">deleteProperty</span>(<span class="hljs-params">target, property</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;deleteProperty()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">deleteProperty</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// deleteProperty()</span><br><span class="hljs-keyword">delete</span> proxy.<span class="hljs-property">foo</span>;<br></code></pre></td></tr></table></figure>
+
+<p><code>deleteProperty()</code> 必须返回表示属性是否存在的布尔值，返回非布尔值会转为布尔值。会拦截 <code>delete proxy.property</code>、<code>delete proxy[property]</code> 和 <code>Reflect.deleteProperty(proxy, property)</code> 操作。</p>
+<ul>
+<li><code>target.property</code> <mark>存在且不可配置<mark>，不能删除这个属性</li>
+</ul>
+<h2 id="ownKeys"><a href="#ownKeys" class="headerlink" title="ownKeys()"></a>ownKeys()</h2><p>在 <code>Object.keys()</code> 及类似方法中会调用 <code>ownKeys()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.ownKeys()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">ownKeys</span>(<span class="hljs-params">target</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;ownKeys()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">ownKeys</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// ownKeys()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(proxy);<br></code></pre></td></tr></table></figure>
+
+<p><code>ownKeys()</code> 必须返回包含字符串或符号的可枚举对象。会拦截 <code>Object.getOwnPropertyNames(proxy)</code>、<code>Object.getOwnPropertySymbols(proxy)</code>、<code>Object.keys(proxy)</code> 和 <code>Reflect.ownKeys(proxy)</code> 操作。</p>
+<ul>
+<li><p>必须返回包含 <code>target</code> 所有不可配置的自有属性的可枚举对象</p>
+</li>
+<li><p><code>target</code> 不可扩展，返回可枚举对象必须准确包含自有属性键</p>
+</li>
+</ul>
+<h2 id="getPrototypeOf"><a href="#getPrototypeOf" class="headerlink" title="getPrototypeOf()"></a>getPrototypeOf()</h2><p>在 <code>Object.getPrototypeOf()</code> 中会调用 <code>getPrototypeOf()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.getPrototypeOf()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">getPrototypeOf</span>(<span class="hljs-params">target</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;getPrototypeOf()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">getPrototypeOf</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// getPrototypeOf()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getPrototypeOf</span>(proxy);<br></code></pre></td></tr></table></figure>
+
+<p><code>getPrototypeOf()</code> 必须返回对象或 <code>null</code>。会拦截 <code>Object.getPrototypeOf(proxy)</code>、<code>Reflect.getPrototypeOf(proxy)</code>、<code>proxy.__proto__</code>、<code>Object.prototype.isPrototypeOf(proxy)</code> 和 <code>proxy instanceof Object</code> 操作。</p>
+<ul>
+<li><code>target</code> 不可扩展，<code>Object.getPrototypeOf(proxy)</code> 唯一有效的返回值就是 <code>Object.getPrototypeOf(target)</code> 的返回值</li>
+</ul>
+<h2 id="setPrototypeOf"><a href="#setPrototypeOf" class="headerlink" title="setPrototypeOf()"></a>setPrototypeOf()</h2><p>在 <code>Object.setPrototypeOf()</code> 中会调用 <code>setPrototypeOf()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.setPrototypeOf()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		prototype: target 的替代原型，如果是顶级原型则为 null</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">setPrototypeOf</span>(<span class="hljs-params">target, prototype</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;setPrototypeOf()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">setPrototypeOf</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// setPrototypeOf()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">setPrototypeOf</span>(proxy, <span class="hljs-title class_">Object</span>);<br></code></pre></td></tr></table></figure>
+
+<p><code>getPrototypeOf()</code> 必须返回表示原型赋值是否成功的布尔值，返回非布尔值会转为布尔值。会拦截 <code>Object.setPrototypeOf(proxy)</code> 和 <code>Reflect.setPrototypeOf(proxy)</code> 操作。</p>
+<ul>
+<li><code>target</code> 不可扩展，<code>Object.setPrototypeOf()</code> 唯一有效的 <code>prototype</code> 参数就是 <code>Object.getPrototypeOf(target)</code> 的返回值</li>
+</ul>
+<h2 id="isExtensible"><a href="#isExtensible" class="headerlink" title="isExtensible()"></a>isExtensible()</h2><p>在 <code>Object.isExtensible()</code> 中会调用 <code>isExtensible()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.isExtensible()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">isExtensible</span>(<span class="hljs-params">target</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;isExtensible()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">isExtensible</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// isExtensible()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">isExtensible</span>(proxy);<br></code></pre></td></tr></table></figure>
+
+<p><code>getPrototypeOf()</code> 必须返回表示 <code>target</code> 是否可扩展的布尔值，返回非布尔值会转为布尔值。会拦截 <code>Object.isExtensible(proxy)</code> 和 <code>Reflect.isExtensible(proxy)</code> 操作。</p>
+<ul>
+<li><p><code>target</code> 可扩展，必须返回 <code>true</code></p>
+</li>
+<li><p><code>target</code> 不可扩展，必须返回 <code>false</code></p>
+</li>
+</ul>
+<h2 id="preventExtensions"><a href="#preventExtensions" class="headerlink" title="preventExtensions()"></a>preventExtensions()</h2><p>在 <code>Object.preventExtensions()</code> 中会调用 <code>preventExtensions()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.preventExtensions()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">preventExtensions</span>(<span class="hljs-params">target</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;preventExtensions()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">preventExtensions</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// preventExtensions()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">preventExtensions</span>(proxy);<br></code></pre></td></tr></table></figure>
+
+<p><code>preventExtensions()</code> 必须返回表示 <code>target</code> 是否已不可扩展的布尔值，返回非布尔值会转为布尔值。会拦截 <code>Object.preventExtensions(proxy)</code> 和 <code>Reflect.preventExtensions(proxy)</code> 操作。</p>
+<ul>
+<li><code>Object.isExtensible(proxy)</code> 是 <code>false</code>，必须返回 <code>true</code></li>
+</ul>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p>在调用函数时会调用 <code>apply()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.apply()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">myTarget</span> = (<span class="hljs-params"></span>) =&gt; &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		thisArg: 调用函数时的 this 参数</span><br><span class="hljs-comment">		argumentsList: 调用函数时的参数列表</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">apply</span>(<span class="hljs-params">target, thisArg, ...argumentsList</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;apply()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">apply</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// apply()</span><br><span class="hljs-title function_">proxy</span>();<br></code></pre></td></tr></table></figure>
+
+<p><code>apply()</code> 返回值无限制。会拦截 <code>proxy(...argumentsList)</code>、<code>Function.prototype.apply(thisArg, argumentsList)</code>、<code>Function.prototype.call(thisArg, ...argumentsList)</code> 和 <code>Reflect.apply(target, thisArgument, argumentsList)</code> 操作。</p>
+<ul>
+<li><code>target</code> 必须是一个函数对象</li>
+</ul>
+<h2 id="construt"><a href="#construt" class="headerlink" title="construt()"></a>construt()</h2><p>在 <code>new</code> 操作符中会调用 <code>construt()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.construt()</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		argumentsList: 调用函数时的参数列表</span><br><span class="hljs-comment">		newTarget: </span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">construct</span>(<span class="hljs-params">target, argumentsList, newTarget</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;construct()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">construct</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// construct()</span><br><span class="hljs-keyword">new</span> proxy;<br></code></pre></td></tr></table></figure>
+
+<p><code>construct()</code> 必须返回一个对象。会拦截 <code>new proxy(...argumentsList)</code> 和 <code>Reflect.construct(target, argumentsList, newTarget)</code> 操作。</p>
+<ul>
+<li><code>target</code> 必须可用作构造函数</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/JavaScript%E7%AC%94%E8%AE%B0/" class="category-chain-item">JavaScript笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JavaScript 笔记-代理捕获器与反射方法</div>
+      <div>http://yojayc.github.io/2025/10/30/JavaScript-笔记-代理捕获器与反射方法/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>YoJayC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月30日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年10月30日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/29/JavaScript-%E7%AC%94%E8%AE%B0-%E4%BB%A3%E7%90%86%E5%9F%BA%E7%A1%80/" title="JavaScript 笔记-代理基础">
+                        <span class="hidden-mobile">JavaScript 笔记-代理基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
