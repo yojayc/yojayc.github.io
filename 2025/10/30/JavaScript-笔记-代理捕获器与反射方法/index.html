@@ -31,7 +31,7 @@
 <meta property="og:description" content="在代理对象上执行的任何一种操作，只会调用一个捕获处理程序，不存在重复捕获。 只要在代理上调用，所有捕获器都会拦截它们对应的反射 API 操作。 get()获取属性值的操作会调用 get() 捕获器，对应反射 API 方法 Reflect.get()  12345678910111213141516const myTarget &#x3D; &#123;&#125;;const proxy &#x3D; new Pro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-30T06:49:36.000Z">
-<meta property="article:modified_time" content="2025-10-30T09:26:37.760Z">
+<meta property="article:modified_time" content="2025-10-30T09:33:51.901Z">
 <meta property="article:author" content="YoJayC">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="笔记">
@@ -294,7 +294,7 @@
             
               <div class="markdown-body">
                 
-                <p>在代理对象上执行的任何一种操作，<mark>只会调用一个捕获处理程序<mark>，不存在重复捕获。</p>
+                <p>在代理对象上执行的任何一种操作，<mark>只会调用一个捕获处理程序</mark>，不存在重复捕获。</p>
 <p>只要在代理上调用，所有捕获器都会拦截它们对应的反射 <code>API</code> 操作。</p>
 <h2 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h2><p>获取属性值的操作会调用 <code>get()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.get()</code> </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">		receiver: 代理对象或继承代理对象的对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">get</span>(<span class="hljs-params">target, property, receiver</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;get()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">get</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br>proxy.<span class="hljs-property">foo</span>;  <span class="hljs-comment">// get()</span><br></code></pre></td></tr></table></figure>
@@ -311,9 +311,9 @@
 
 <p><code>set()</code> 捕获器返回 <code>true</code> 表示成功；返回 <code>false</code> 表示失败，严格模式会抛出 <code>TypeError</code>。会拦截 <code>proxy.property = value</code>、<code>proxy[property] = value</code>、<code>Object.create(proxy)[property] = value</code> 和 <code>Reflect.set(proxy, property, value, receiver)</code> 操作。</p>
 <ul>
-<li><p><code>target.property</code> <mark>不可写且不可配置<mark>，则不能修改目标属性的值</p>
+<li><p><code>target.property</code> <mark>不可写且不可配置</mark>，则不能修改目标属性的值</p>
 </li>
-<li><p><code>target.property</code> <mark>不可配置且 <code>[[Set]]</code> 特性为 <code>undefined</code><mark>，则不能修改目标属性的值</p>
+<li><p><code>target.property</code> <mark>不可配置且 <code>[[Set]]</code> 特性为 <code>undefined</code></mark>，则不能修改目标属性的值</p>
 </li>
 </ul>
 <h2 id="has"><a href="#has" class="headerlink" title="has()"></a>has()</h2><p>在 <code>in</code> 操作符中会调用 <code>has()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.has()</code></p>
@@ -321,9 +321,9 @@
 
 <p><code>has()</code> 必须返回表示属性是否存在的布尔值，返回非布尔值会转为布尔值。会拦截 <code>property in proxy</code>、<code>property in Object.create(proxy)</code>、<code>with(proxy) {(property);}</code> 和 <code>Reflect.has(proxy, property)</code> 操作。</p>
 <ul>
-<li><p><code>target.property</code> <mark>存在且不可配置<mark>，处理程序必须返回 <code>true</code></p>
+<li><p><code>target.property</code> <mark>存在且不可配置</mark>，处理程序必须返回 <code>true</code></p>
 </li>
-<li><p><code>target.property</code> <mark>存在且目标对象不可扩展<mark>，处理程序必须返回 <code>true</code></p>
+<li><p><code>target.property</code> <mark>存在且目标对象不可扩展</mark>，处理程序必须返回 <code>true</code></p>
 </li>
 </ul>
 <h2 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty()"></a>defineProperty()</h2><p>在 <code>Object.defineProperty()</code> 中会调用 <code>defineProperty()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.defineProperty()</code></p>
@@ -331,27 +331,27 @@
 
 <p><code>defineProperty()</code> 必须返回表示属性是否存在的布尔值，返回非布尔值会转为布尔值。会拦截 <code>Object.defineProperty(proxy, property, descriptor)</code> 和 <code>Reflect.defineProperty(proxy, property, descriptor)</code> 操作。</p>
 <ul>
-<li><p>目标对象<mark>不可扩展<mark>，无法定义属性</p>
+<li><p>目标对象<mark>不可扩展</mark>，无法定义属性</p>
 </li>
-<li><p>目标对象有一个<mark>可配置的属性<mark>，不能添加同名的不可配置属性</p>
+<li><p>目标对象有一个<mark>可配置的属性</mark>，不能添加同名的不可配置属性</p>
 </li>
-<li><p>目标对象有一个<mark>不可配置的属性<mark>，不能添加同名的可配置属性</p>
+<li><p>目标对象有一个<mark>不可配置的属性</mark>，不能添加同名的可配置属性</p>
 </li>
 </ul>
 <h2 id="getOwnPropertyDescriptor"><a href="#getOwnPropertyDescriptor" class="headerlink" title="getOwnPropertyDescriptor()"></a>getOwnPropertyDescriptor()</h2><p>在 <code>Object.getOwnPropertyDescriptor()</code> 中会调用 <code>getOwnPropertyDescriptor()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.getOwnPropertyDescriptor()</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		property: 引用的目标对象上的字符串键属性</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">getOwnPropertyDescriptor</span>(<span class="hljs-params">target, property</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;getOwnPropertyDescriptor()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">getOwnPropertyDescriptor</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// getOwnPropertyDescriptor()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">getOwnPropertyDescriptor</span>(proxy, <span class="hljs-string">&#x27;foo&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><code>getOwnPropertyDescriptor()</code> <mark>必须返回对象<mark>，在属性不存在时返回 <code>undefined</code>。会拦截 <code>Object.getOwnPropertyDescriptor(proxy, property)</code> 和 <code>Reflect.getOwnPropertyDescriptor(proxy, property)</code> 操作。</p>
+<p><code>getOwnPropertyDescriptor()</code> <mark>必须返回对象</mark>，在属性不存在时返回 <code>undefined</code>。会拦截 <code>Object.getOwnPropertyDescriptor(proxy, property)</code> 和 <code>Reflect.getOwnPropertyDescriptor(proxy, property)</code> 操作。</p>
 <ul>
-<li><p><code>target.property</code> <mark>存在且不可配置<mark>，必须返回一个表示该属性存在的对象</p>
+<li><p><code>target.property</code> <mark>存在且不可配置</mark>，必须返回一个表示该属性存在的对象</p>
 </li>
-<li><p><code>target.property</code> <mark>存在且可配置<mark>，必须返回表示该属性可配置的对象</p>
+<li><p><code>target.property</code> <mark>存在且可配置</mark>，必须返回表示该属性可配置的对象</p>
 </li>
-<li><p><code>target.property</code> <mark>存在且 <code>target</code> 不可扩展<mark>，必须返回一个表示该属性存在的对象</p>
+<li><p><code>target.property</code> <mark>存在且 <code>target</code> 不可扩展</mark>，必须返回一个表示该属性存在的对象</p>
 </li>
-<li><p><code>target.property</code> <mark>不存在且 <code>target</code> 不可扩展<mark>，必须返回 <code>undefined</code> 表示该属性不存在</p>
+<li><p><code>target.property</code> <mark>不存在且 <code>target</code> 不可扩展</mark>，必须返回 <code>undefined</code> 表示该属性不存在</p>
 </li>
-<li><p><code>target.property</code> <mark>不存在<mark>，不能返回表示该属性可配置的对象</p>
+<li><p><code>target.property</code> <mark>不存在</mark>，不能返回表示该属性可配置的对象</p>
 </li>
 </ul>
 <h2 id="deleteProperty"><a href="#deleteProperty" class="headerlink" title="deleteProperty()"></a>deleteProperty()</h2><p>在 <code>delete</code> 操作符中会调用 <code>deleteProperty()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.deleteProperty()</code></p>
@@ -359,7 +359,7 @@
 
 <p><code>deleteProperty()</code> 必须返回表示属性是否存在的布尔值，返回非布尔值会转为布尔值。会拦截 <code>delete proxy.property</code>、<code>delete proxy[property]</code> 和 <code>Reflect.deleteProperty(proxy, property)</code> 操作。</p>
 <ul>
-<li><code>target.property</code> <mark>存在且不可配置<mark>，不能删除这个属性</li>
+<li><code>target.property</code> <mark>存在且不可配置</mark>，不能删除这个属性</li>
 </ul>
 <h2 id="ownKeys"><a href="#ownKeys" class="headerlink" title="ownKeys()"></a>ownKeys()</h2><p>在 <code>Object.keys()</code> 及类似方法中会调用 <code>ownKeys()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.ownKeys()</code></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">ownKeys</span>(<span class="hljs-params">target</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;ownKeys()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">ownKeys</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// ownKeys()</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(proxy);<br></code></pre></td></tr></table></figure>

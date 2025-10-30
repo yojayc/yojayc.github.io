@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yojayc.github.io/2025/10/30/JavaScript-%E7%AC%94%E8%AE%B0-%E4%BB%A3%E7%90%86%E6%8D%95%E8%8E%B7%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95/</loc>
+    <loc>http://yojayc.github.io/2025/10/26/JavaScript%E7%AC%94%E8%AE%B0-%E7%B1%BB/</loc>
+    
+    <lastmod>2025-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2025/10/25/JavaScript-%E7%AC%94%E8%AE%B0-%E7%BB%A7%E6%89%BF/</loc>
+    
+    <lastmod>2025-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2025/10/22/JavaScript-%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/</loc>
     
     <lastmod>2025-10-30</lastmod>
     
@@ -16,23 +30,9 @@
   </url>
   
   <url>
-    <loc>http://yojayc.github.io/2025/10/26/JavaScript%E7%AC%94%E8%AE%B0-%E7%B1%BB/</loc>
+    <loc>http://yojayc.github.io/2025/10/30/JavaScript-%E7%AC%94%E8%AE%B0-%E4%BB%A3%E7%90%86%E6%8D%95%E8%8E%B7%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%B0%84%E6%96%B9%E6%B3%95/</loc>
     
-    <lastmod>2025-10-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yojayc.github.io/2025/10/25/JavaScript-%E7%AC%94%E8%AE%B0-%E7%BB%A7%E6%89%BF/</loc>
-    
-    <lastmod>2025-10-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yojayc.github.io/2025/10/22/JavaScript-%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/</loc>
-    
-    <lastmod>2025-10-28</lastmod>
+    <lastmod>2025-10-30</lastmod>
     
   </url>
   
