@@ -31,7 +31,7 @@
 <meta property="og:description" content="在代理对象上执行的任何一种操作，只会调用一个捕获处理程序，不存在重复捕获。 只要在代理上调用，所有捕获器都会拦截它们对应的反射 API 操作。 get()获取属性值的操作会调用 get() 捕获器，对应反射 API 方法 Reflect.get()  12345678910111213141516const myTarget &#x3D; &#123;&#125;;const proxy &#x3D; new Pro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-30T06:49:36.000Z">
-<meta property="article:modified_time" content="2025-10-30T09:33:51.901Z">
+<meta property="article:modified_time" content="2025-10-31T01:37:03.855Z">
 <meta property="article:author" content="YoJayC">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="笔记">
@@ -410,7 +410,7 @@
 <li><code>target</code> 必须是一个函数对象</li>
 </ul>
 <h2 id="construt"><a href="#construt" class="headerlink" title="construt()"></a>construt()</h2><p>在 <code>new</code> 操作符中会调用 <code>construt()</code> 捕获器，对应反射 <code>API</code> 方法 <code>Reflect.construt()</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标对象</span><br><span class="hljs-comment">		argumentsList: 调用函数时的参数列表</span><br><span class="hljs-comment">		newTarget: </span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">construct</span>(<span class="hljs-params">target, argumentsList, newTarget</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;construct()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">construct</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// construct()</span><br><span class="hljs-keyword">new</span> proxy;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> myTarget = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;;<br><br><span class="hljs-keyword">const</span> proxy = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proxy</span>(myTarget, &#123;<br>	<span class="hljs-comment">/*</span><br><span class="hljs-comment">		target: 目标构造函数</span><br><span class="hljs-comment">		argumentsList: 传给目标构造函数的参数列表</span><br><span class="hljs-comment">		newTarget: 最初被调用的构造函数</span><br><span class="hljs-comment">	*/</span><br>    <span class="hljs-title function_">construct</span>(<span class="hljs-params">target, argumentsList, newTarget</span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;construct()&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-title class_">Reflect</span>.<span class="hljs-title function_">construct</span>(...<span class="hljs-variable language_">arguments</span>);<br>    &#125;<br>&#125;);<br><br><span class="hljs-comment">// construct()</span><br><span class="hljs-keyword">new</span> proxy;<br></code></pre></td></tr></table></figure>
 
 <p><code>construct()</code> 必须返回一个对象。会拦截 <code>new proxy(...argumentsList)</code> 和 <code>Reflect.construct(target, argumentsList, newTarget)</code> 操作。</p>
 <ul>
@@ -482,7 +482,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年10月30日</div>
+          <div>2025年10月31日</div>
         </div>
       
       
@@ -524,6 +524,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2025/10/30/JavaScript-%E7%AC%94%E8%AE%B0-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" title="JavaScript 笔记-代理模式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript 笔记-代理模式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
