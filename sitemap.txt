@@ -14,15 +14,15 @@ http://yojayc.github.io/tags/index.html
 http://yojayc.github.io/categories/index.html
 http://yojayc.github.io/about/index.html
 http://yojayc.github.io/
+http://yojayc.github.io/tags/Android/
 http://yojayc.github.io/tags/JavaScript/
 http://yojayc.github.io/tags/%E7%AC%94%E8%AE%B0/
 http://yojayc.github.io/tags/%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3/
 http://yojayc.github.io/tags/HTML/
-http://yojayc.github.io/tags/Android/
 http://yojayc.github.io/tags/%E6%96%B0%E6%A0%87%E6%97%A5/
 http://yojayc.github.io/tags/%E5%88%9D%E7%BA%A7/
+http://yojayc.github.io/categories/Android/
 http://yojayc.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/
 http://yojayc.github.io/categories/JavaScript/
 http://yojayc.github.io/categories/HTML/
-http://yojayc.github.io/categories/Android/
 http://yojayc.github.io/categories/%E6%97%A5%E8%AF%AD/
