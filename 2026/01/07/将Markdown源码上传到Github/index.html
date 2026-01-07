@@ -23,18 +23,20 @@
   <meta name="author" content="YoJayC">
   <meta name="keywords" content="yojayc, 技术博客, yojayc blog, 前端, JavaScript">
   
-    <meta name="description" content="初始化Git在需要上传的文件夹目录初始化">
+    <meta name="description" content="使用 hexo 的部署方法 12hexo generate  &#x2F;&#x2F; hexo ghexo deploy  &#x2F;&#x2F; hexo d  只能将编译后的网页推送到 Github 仓库，无法推送 Markwon 源文件。 可以在仓库中创建一个分支，将 Markwon 文件对应的文件夹推送到这个分支。 初始化Git在需要上传的文件夹目录初始化 Git，并创建新的源码分支（例如source-branch） 12g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="将Markdown源码上传到Github">
 <meta property="og:url" content="http://yojayc.github.io/2026/01/07/%E5%B0%86Markdown%E6%BA%90%E7%A0%81%E4%B8%8A%E4%BC%A0%E5%88%B0Github/index.html">
 <meta property="og:site_name" content="YoJayC">
-<meta property="og:description" content="初始化Git在需要上传的文件夹目录初始化">
+<meta property="og:description" content="使用 hexo 的部署方法 12hexo generate  &#x2F;&#x2F; hexo ghexo deploy  &#x2F;&#x2F; hexo d  只能将编译后的网页推送到 Github 仓库，无法推送 Markwon 源文件。 可以在仓库中创建一个分支，将 Markwon 文件对应的文件夹推送到这个分支。 初始化Git在需要上传的文件夹目录初始化 Git，并创建新的源码分支（例如source-branch） 12g">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yojayc.github.io/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/ithub/githubAddr.png">
 <meta property="article:published_time" content="2026-01-07T02:42:32.000Z">
-<meta property="article:modified_time" content="2026-01-07T02:44:04.234Z">
+<meta property="article:modified_time" content="2026-01-07T03:12:22.818Z">
 <meta property="article:author" content="YoJayC">
 <meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://yojayc.github.io/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/ithub/githubAddr.png">
   
   
   
@@ -239,7 +241,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          18 字
+          213 字
         
       </span>
     
@@ -251,7 +253,7 @@
         
         
           <!-- compatible with older versions-->
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -293,8 +295,26 @@
             
               <div class="markdown-body">
                 
-                <h2 id="初始化Git"><a href="#初始化Git" class="headerlink" title="初始化Git"></a>初始化<code>Git</code></h2><p>在需要上传的文件夹目录初始化</p>
+                <p>使用 <code>hexo</code> 的部署方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo generate  // hexo g<br>hexo deploy  // hexo d<br></code></pre></td></tr></table></figure>
 
+<p>只能将编译后的网页推送到 <code>Github</code> 仓库，无法推送 <code>Markwon</code> 源文件。</p>
+<p>可以在仓库中创建一个分支，将 <code>Markwon</code> 文件对应的文件夹推送到这个分支。</p>
+<h2 id="初始化Git"><a href="#初始化Git" class="headerlink" title="初始化Git"></a>初始化<code>Git</code></h2><p>在需要上传的文件夹目录初始化 <code>Git</code>，并创建新的源码分支（例如<code>source-branch</code>）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init<br>git checkout -b source-branch<br></code></pre></td></tr></table></figure>
+
+<h2 id="添加-提交文件"><a href="#添加-提交文件" class="headerlink" title="添加&#x2F;提交文件"></a>添加&#x2F;提交文件</h2><p>将需要上传的文件夹目录添加到 <code>Git</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .<br>git commit -m <span class="hljs-string">&quot;Add my blog source files&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="将-source-branch-推送到-Github-仓库"><a href="#将-source-branch-推送到-Github-仓库" class="headerlink" title="将 source-branch 推送到 Github 仓库"></a>将 <code>source-branch</code> 推送到 <code>Github</code> 仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote add origin &lt;Github仓库地址&gt;<br>git push -u origin source-branch<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/ithub/githubAddr.png" srcset="/img/loading.gif" lazyload alt="&#96;Github&#96;仓库地址"></p>
+<p><code>Github</code> 仓库地址是 <code>Github</code> 仓库中 <code>Code</code> 按钮下方展开显示的链接选项</p>
+<br>
+
+<p><span style="color:red">注：</span></p>
+<p>直接输入 <code>git push -u origin source-branch</code> 会提示输入用户名和密码，但是 <code>Github</code> 不再<br>支持使用账号密码进行 <code>Git https</code> 推送，可以采用 <a href="%60ssh%60%E5%AF%86%E9%92%A5"><code>ssh</code> 密钥</a>的方式进行推送</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2>
                 
               </div>
             
