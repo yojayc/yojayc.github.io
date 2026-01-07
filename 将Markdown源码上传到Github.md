@@ -6,6 +6,8 @@ tags:
 categories: Markdown
 ---
 
+## 简介
+
 使用 `hexo` 的部署方法
 
 ```bash
@@ -16,6 +18,16 @@ hexo deploy  // hexo d
 只能将编译后的网页推送到 `Github` 仓库，无法推送 `Markwon` 源文件。
 
 可以在仓库中创建一个分支，将 `Markwon` 文件对应的文件夹推送到这个分支。
+
+在本地配置完成后，后续只需在对应的文件夹中执行
+
+```bash
+git add .
+git commit -m "Add my blog source files"
+git push -u origin source-branch
+```
+
+就可以将 `Markdown` 源代码上传到对应的分支
 
 ## 初始化`Git`
 
