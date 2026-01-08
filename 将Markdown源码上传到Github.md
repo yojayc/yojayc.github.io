@@ -24,7 +24,7 @@ hexo deploy  // hexo d
 ```bash
 git add .
 git commit -m "Add my blog source files"
-git push -u origin source-branch
+git push
 ```
 
 就可以将 `Markdown` 源代码上传到对应的分支
@@ -44,7 +44,9 @@ git checkout -b source-branch
 将需要上传的文件夹目录添加到 `Git`
 
 ```bash
+// 将本地工作区中所有修改 / 新增 / 删除的文件，添加到 Git 的 “暂存区”
 git add .
+// 将暂存区的文件正式 “提交” 到本地 Git 仓库，生成一个新的提交记录
 git commit -m "Add my blog source files"
 ```
 
@@ -52,6 +54,16 @@ git commit -m "Add my blog source files"
 
 ```bash
 git remote add origin <Github仓库地址>
+/*
+	告诉 Git，本地的 source-branch 分支要追踪远程 origin 仓库下的同名分支
+	建立后，后续在这个分支下只需输入 git push/git pull
+	Git 就知道要推 / 拉到哪个远程分支，无需重复写完整命令
+
+	origin 是远程仓库的默认别名，指向代码托管平台上的远程仓库地址
+
+	source-branch 是要推送的本地分支名称
+	命令会把这个分支的所有本地提交推到远程 origin 仓库的同名分支（如果远程没有这个分支，会自动创建）
+*/
 git push -u origin source-branch
 ```
 
