@@ -1,0 +1,900 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="google-site-verification" content="u_A6aughwSIwEoiK7-4LkqHcXUG9a1IHGbVZVFsA7GM" />
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="YoJayC">
+  <meta name="keywords" content="yojayc, 技术博客, yojayc blog, 前端, JavaScript">
+  
+    <meta name="description" content="第16课宾馆的房间又宽敞又明亮动词  课文ホテルの　部屋（へや）は　広（ひろ）くて　明（あか）るいです宾馆的房间又宽敞又明亮 この　コンピュータの　操作（そうさ）は　簡単（かんたん）で　便利（べんり）です这台电脑用起来既简单又方便 森（もり）さんは　車（くるま）を　持（も）って　います森先生有辆车 ３（さん）か月（げつ）　パソコンを　練習（れんしゅう）しましたが、まだ　あまり　できません我学了三个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新标日-初级-第16课">
+<meta property="og:url" content="http://yojayc.github.io/2026/01/29/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC16%E8%AF%BE/index.html">
+<meta property="og:site_name" content="YoJayC">
+<meta property="og:description" content="第16课宾馆的房间又宽敞又明亮动词  课文ホテルの　部屋（へや）は　広（ひろ）くて　明（あか）るいです宾馆的房间又宽敞又明亮 この　コンピュータの　操作（そうさ）は　簡単（かんたん）で　便利（べんり）です这台电脑用起来既简单又方便 森（もり）さんは　車（くるま）を　持（も）って　います森先生有辆车 ３（さん）か月（げつ）　パソコンを　練習（れんしゅう）しましたが、まだ　あまり　できません我学了三个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yojayc.github.io/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/bBase.png">
+<meta property="og:image" content="http://yojayc.github.io/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/bBase1.png">
+<meta property="article:published_time" content="2026-01-29T08:13:53.000Z">
+<meta property="article:modified_time" content="2026-01-30T01:29:59.413Z">
+<meta property="article:author" content="YoJayC">
+<meta property="article:tag" content="初级">
+<meta property="article:tag" content="新标日">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://yojayc.github.io/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/bBase.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>新标日-初级-第16课 - YoJayC</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"yojayc.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YoJayC</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="新标日-初级-第16课"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-29 16:13" pubdate>
+          2026年1月29日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">新标日-初级-第16课</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第16课宾馆的房间又宽敞又明亮"><a href="#第16课宾馆的房间又宽敞又明亮" class="headerlink" title="第16课宾馆的房间又宽敞又明亮"></a>第16课宾馆的房间又宽敞又明亮</h2><h3 id="动词"><a href="#动词" class="headerlink" title="动词"></a>动词</h3><p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/bBase.png" srcset="/img/loading.gif" lazyload alt="动词原形"></p>
+<p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/bBase1.png" srcset="/img/loading.gif" lazyload alt="动词原形1"></p>
+<h3 id="课文"><a href="#课文" class="headerlink" title="课文"></a>课文</h3><p>ホテルの　部屋（へや）は　広（ひろ）くて　明（あか）るいです<br>宾馆的房间又宽敞又明亮</p>
+<p>この　コンピュータの　操作（そうさ）は　簡単（かんたん）で　便利（べんり）です<br>这台电脑用起来既简单又方便</p>
+<p>森（もり）さんは　車（くるま）を　持（も）って　います<br>森先生有辆车</p>
+<p>３（さん）か月（げつ）　パソコンを　練習（れんしゅう）しましたが、まだ　あまり　できません<br>我学了三个月电脑，但还不太会用（<strong>が表示转折</strong>）</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="一类形-て-一类形-并列"><a href="#一类形-て-一类形-并列" class="headerlink" title="一类形 て 一类形[并列]"></a>一类形 て 一类形[并列]</h4><p>两个以上一类形容词并列使用时，使用一类形容词的て形</p>
+<p>一类形容词的“て形”<strong>将词尾<span style="color:red">“い”变为“くて</span>”</strong></p>
+<style>
+	.center {
+		width: auto;
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+
+<div class="center">
+
+<table>
+<thead>
+<tr>
+<th align="center">一类形容词</th>
+<th align="center">假名</th>
+<th align="center">て形</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">明るい</td>
+<td align="center">あかるい</td>
+<td align="center">明るくて</td>
+</tr>
+<tr>
+<td align="center">新しい</td>
+<td align="center">あたらしい</td>
+<td align="center">新しくて</td>
+</tr>
+<tr>
+<td align="center"><strong>いい</strong></td>
+<td align="center">&nbsp;</td>
+<td align="center"><span style="color:red"><strong>よくて</strong></span></td>
+</tr>
+</tbody></table>
+</div>
+
+<p>ホテルの　部屋は　広くて　明るいです</p>
+<p>この　本（ほん）は　安（やす）くて　おもしろいです<br>这本书又便宜又有意思</p>
+<p>この　リンゴは　大（おお）きくて、甘（あま）くて、おいしいです<br>这个苹果又大又甜，很好吃</p>
+<p>这个蛋糕又大又甜<br>このケーキは　大きくて　甘いです</p>
+<h4 id="二类形-で-二类形-并列"><a href="#二类形-で-二类形-并列" class="headerlink" title="二类形 で 二类形[并列]"></a>二类形 で 二类形[并列]</h4><p>两个以上二类形容词并列使用时，使用二类形容词的て形</p>
+<p>二类形容词的“て形”是<strong>二类形容词+<span style="color:red">で</span>”</strong></p>
+<div class="center">
+
+<table>
+<thead>
+<tr>
+<th align="center">二类形容词</th>
+<th align="center">假名</th>
+<th align="center">て形</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">簡単</td>
+<td align="center">かんたん</td>
+<td align="center">簡単で</td>
+</tr>
+<tr>
+<td align="center">親切</td>
+<td align="center">しんせつ</td>
+<td align="center">親切で</td>
+</tr>
+<tr>
+<td align="center">にぎやが</td>
+<td align="center">&nbsp;</td>
+<td align="center">にぎやがで</td>
+</tr>
+</tbody></table>
+</div>
+
+<p>この　コンピュータの　操作は　簡単　で　便利です</p>
+<p>森さんは　親切（しんせつ）　で　優（やさ）しいです<br>森先生为人热情而和蔼</p>
+<p>この　公園（こうえん）は　静（しず）か　で　広（ひろ）いです<br>这个公园安静而宽敞</p>
+<p>这里又方便又热闹<br>ここは　便利（べんり）　で　にぎやがです</p>
+<h4 id="名1-で-名2-并列"><a href="#名1-で-名2-并列" class="headerlink" title="名1 で 名2[并列]"></a>名1 <span style="color:red">で</span> 名2[并列]</h4><p>两个以上的名词并列使用格式</p>
+<p>スミスさんは　旅行会社（りょこうがいしゃ）の　社員（しゃいん）　で　営業部（えいぎょうぶ）の　部長（ぶちょう）です<br>史密斯先生是旅行社的职员，营业部部长</p>
+<p>この　機械（きかい）は　日中電気（にっちゅうでんき）の　製品（せいひん）　で　中国製（ちゅごくせい）です<br>这台机器是日中电器公司的产品，是中国制造的</p>
+<p>小李是中国人，是北京大学的学生<br>李さんは　中国人（ちゅうごくじん）　で　北京大学（ペキンだいがく）の　学生（がくせい）です</p>
+<h4 id="动て-います-结果状态"><a href="#动て-います-结果状态" class="headerlink" title="动て　います　[结果状态]"></a>动て　います　[结果状态]</h4><p>动て　います 除了表示<strong>正在进行</strong>之外，还能表示<span style="color:red"><strong>动作结束后留下的结果状态</strong></span></p>
+<p>森さんは　車を　持って　います</p>
+<p>私は　北京（ペキン）に　住（す）んで　います<br>我住在北京</p>
+<p>田中（たなか）さんを　知（し）って　いますか<br>认识田中先生吗？</p>
+<p>車を　持って　いますか	有车吗？<br>ーー　いいえ、持って　いません	不，没有</p>
+<p>田中さんを　知って　いますか<br>ーー　いいえ、<strong>知りません</strong> 	不，不认识</p>
+<blockquote>
+<p>不能回答 “知って　いません”</p>
+</blockquote>
+<h4 id="小句-が-小句-转折"><a href="#小句-が-小句-转折" class="headerlink" title="小句 が 小句[转折]"></a>小句 が 小句[转折]</h4><p><strong>が</strong> 表示两个小句的<strong>转折</strong>关系，相当于“但是、可是”</p>
+<p>３か月　パソコンを　勉強（べんきょう）しました　が、まだ　あまり　できません</p>
+<p>この　レストランを　おいしいです　が、ちょっと　高（たか）いです<br>这家餐厅的饭菜好吃，但是有点贵</p>
+<p>佐藤很漂亮，但是性格不好<br>佐藤（さとう）さんは　きれいです　が　性格（せいかく）は　悪（わる）いです</p>
+<h4 id="まだ-动词（否定）"><a href="#まだ-动词（否定）" class="headerlink" title="まだ　动词（否定）"></a>まだ　动词（<span style="color:red">否定</span>）</h4><p>表示还没达到所询问的内容的程度，相当于“还没有”</p>
+<p>何年（なんねん）ぐらい　日本語（にほんご）を　勉強（べんきょう）しましたか 	学了几年日语？<br>ーー　二年（にねん）　勉強（べんきょう）しました。でも、<strong>まだ</strong>　あまり　でき<strong>ません</strong>	学了两年，但还不太会</p>
+<p>小野（おの）さんは　<strong>もう</strong>　結婚（けっこん）して　いますか 	小野女士，你已经结婚了吗？<br>ーー　いいえ、<strong>まだ</strong>　結婚し<strong>て　いません</strong> 	不，还没结</p>
+<p>我还没有吃饭<br>私は　まだ　ご飯（ごはん）を　食べて　いません</p>
+<h3 id="表达及词语讲解"><a href="#表达及词语讲解" class="headerlink" title="表达及词语讲解"></a>表达及词语讲解</h3><h4 id="身体部位名词和相应的形容词"><a href="#身体部位名词和相应的形容词" class="headerlink" title="身体部位名词和相应的形容词"></a>身体部位名词和相应的形容词</h4><div class="center">
+
+<table>
+<thead>
+<tr>
+<th align="center">身体部位</th>
+<th align="center">形容词</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">脚（あし）&#x2F;指（ゆび）　腿&#x2F;指头</td>
+<td align="center">長（なが）い&#x2F;太（ふと）い 长&#x2F;粗 - 短（みじか）い&#x2F;細（ほそ）い 短&#x2F;细</td>
+</tr>
+<tr>
+<td align="center">足（あし） 脚</td>
+<td align="center">大（おお）きい 大 - 小（ちい）さい 小</td>
+</tr>
+<tr>
+<td align="center">目（め） 眼睛</td>
+<td align="center">大きい 大 - 小さい&#x2F;細い 小</td>
+</tr>
+<tr>
+<td align="center">鼻（はな） 鼻子</td>
+<td align="center">高（たか）い 高 - 低（ひく）い 低</td>
+</tr>
+<tr>
+<td align="center">顔（かお） 脸</td>
+<td align="center">大きい 大 - 小さい 小</td>
+</tr>
+<tr>
+<td align="center">背（せ） 个子</td>
+<td align="center">高い 高 - 低い 矮</td>
+</tr>
+</tbody></table>
+</div>
+
+<h4 id="日语费用表达"><a href="#日语费用表达" class="headerlink" title="日语费用表达"></a>日语费用表达</h4><div class="center">
+
+<table>
+<thead>
+<tr>
+<th align="center">&nbsp;</th>
+<th align="center">&nbsp;</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">〜費（ひ）</td>
+<td align="center">会費（かいひ）会费　光熱費（こうねつひ）照明、供热、供暖费　交通費（こうつうひ）交通费　食費（しょくひ）伙食费</td>
+</tr>
+<tr>
+<td align="center">〜料（りょう）</td>
+<td align="center">入場料（にゅうじょうりょう）门票费　使用料（しようりょう）使用费　送料（そうりょう）运费　手数料（てすうりょう）手续费</td>
+</tr>
+<tr>
+<td align="center">〜代（だい）</td>
+<td align="center">電気代（でんきだい）电费　水道代（すいどうだい）水费　タクシー代 出租车费　食事代（しょくじだい）餐费</td>
+</tr>
+</tbody></table>
+</div>
+
+<h4 id="IDカードは-ありますか"><a href="#IDカードは-ありますか" class="headerlink" title="IDカードは　ありますか"></a>IDカードは　ありますか</h4><p>あります　除表示<strong>存在和在某处发生某事</strong>外，还表示<strong>所有</strong></p>
+<p>私は　車が　２台（にだい）　あります<br>我有两辆车</p>
+<p>今（いま）、お金（かね）が　全然（ぜんぜん）　ありません<br>现在我一点儿钱也没有</p>
+<p>森さんは　弟（おとうと）が　二人（ふたり）　<strong>います</strong><br>森先生有两个弟弟</p>
+<h4 id="ちゃんと"><a href="#ちゃんと" class="headerlink" title="ちゃんと"></a>ちゃんと</h4><p>表示“没错、好好地”或“处于正常状态”，<strong>只用于口语</strong></p>
+<p>ちゃんと　食べてください<br>请好好吃</p>
+<p>ちゃんと　勉強（べんきょう）して<br>好好学习</p>
+<h4 id="ほら"><a href="#ほら" class="headerlink" title="ほら"></a>ほら</h4><p>表示“你看！”，用于提醒对方</p>
+<h4 id="ずいぶん"><a href="#ずいぶん" class="headerlink" title="ずいぶん"></a>ずいぶん</h4><p>表示程度高，超过说话人的想象，无论内容是好是坏</p>
+<h4 id="派手（はで）"><a href="#派手（はで）" class="headerlink" title="派手（はで）"></a>派手（はで）</h4><p>形容色彩过分鲜艳或形状奇特。反义词是“地味（じみ），朴素、质朴”</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%97%A5%E8%AF%AD/" class="category-chain-item">日语</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%B0%E6%A0%87%E6%97%A5/" class="print-no-link">#新标日</a>
+      
+        <a href="/tags/%E5%88%9D%E7%BA%A7/" class="print-no-link">#初级</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>新标日-初级-第16课</div>
+      <div>http://yojayc.github.io/2026/01/29/新标日-初级-第16课/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>YoJayC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月29日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年1月30日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/30/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC17%E8%AF%BE/" title="新标日-初级-第17课">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">新标日-初级-第17课</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/27/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC15%E8%AF%BE/" title="新标日-初级-第15课">
+                        <span class="hidden-mobile">新标日-初级-第15课</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

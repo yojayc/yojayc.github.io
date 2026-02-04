@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="google-site-verification" content="u_A6aughwSIwEoiK7-4LkqHcXUG9a1IHGbVZVFsA7GM" />
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="YoJayC">
+  <meta name="keywords" content="yojayc, 技术博客, yojayc blog, 前端, JavaScript">
+  
+    <meta name="description" content="第12课小李比森先生年轻课文李さんは　森さんより　若（わか）いです小李比森先生年轻 日本（にほん）より　中国（ちゅうごく）の　ほうが　広（ひろ）いです和日本相比，中国更辽阔 神戸（こうべ）は　大阪（おおさか）ほど　にぎやがでは　ありません神户没有大阪那么繁荣 スポーツの　中（なか）で　サッカーが　いちばん　おもしろいです在各种体育活动中，足球最有意思 语法Aは Bより 一类形&#x2F;二类形です">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新标日-初级-第12课">
+<meta property="og:url" content="http://yojayc.github.io/2026/01/24/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC12%E8%AF%BE/index.html">
+<meta property="og:site_name" content="YoJayC">
+<meta property="og:description" content="第12课小李比森先生年轻课文李さんは　森さんより　若（わか）いです小李比森先生年轻 日本（にほん）より　中国（ちゅうごく）の　ほうが　広（ひろ）いです和日本相比，中国更辽阔 神戸（こうべ）は　大阪（おおさか）ほど　にぎやがでは　ありません神户没有大阪那么繁荣 スポーツの　中（なか）で　サッカーが　いちばん　おもしろいです在各种体育活动中，足球最有意思 语法Aは Bより 一类形&#x2F;二类形です">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-24T04:50:20.000Z">
+<meta property="article:modified_time" content="2026-01-24T10:49:01.393Z">
+<meta property="article:author" content="YoJayC">
+<meta property="article:tag" content="初级">
+<meta property="article:tag" content="新标日">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>新标日-初级-第12课 - YoJayC</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"yojayc.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YoJayC</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="新标日-初级-第12课"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-24 12:50" pubdate>
+          2026年1月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          896 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">新标日-初级-第12课</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第12课小李比森先生年轻"><a href="#第12课小李比森先生年轻" class="headerlink" title="第12课小李比森先生年轻"></a>第12课小李比森先生年轻</h2><h3 id="课文"><a href="#课文" class="headerlink" title="课文"></a>课文</h3><p>李さんは　森さんより　若（わか）いです<br>小李比森先生年轻</p>
+<p>日本（にほん）より　中国（ちゅうごく）の　ほうが　広（ひろ）いです<br>和日本相比，中国更辽阔</p>
+<p>神戸（こうべ）は　大阪（おおさか）ほど　にぎやがでは　ありません<br>神户没有大阪那么繁荣</p>
+<p>スポーツの　中（なか）で　サッカーが　いちばん　おもしろいです<br>在各种体育活动中，足球最有意思</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="Aは-Bより-一类形-二类形です"><a href="#Aは-Bより-一类形-二类形です" class="headerlink" title="Aは Bより 一类形&#x2F;二类形です"></a>Aは Bより 一类形&#x2F;二类形です</h4><p>A比B<strong>更具有形容词所表示的性质</strong>时使用</p>
+<p>李さんは　森さん　より　若いです</p>
+<p>中国は　日本　より　広いです<br>中国比日本辽阔</p>
+<p>上海（シャンハイ）は　北京（ペキン）　より　にぎやがですか<br>上海比北京热闹吗？</p>
+<br>
+
+<p>程度差异较大时用副词“<strong>ずっと</strong>”强调</p>
+<p>中国は　日本　より　ずっと　広いです<br>中国比日本辽阔得多</p>
+<h4 id="Aより、Bのほうが-一类形-二类形です"><a href="#Aより、Bのほうが-一类形-二类形です" class="headerlink" title="Aより、Bのほうが　一类形&#x2F;二类形です"></a>Aより、Bのほうが　一类形&#x2F;二类形です</h4><p>与A相比，B更加的……</p>
+<p>日本　より　中国　の　ほうが　広いです</p>
+<p>北京　より　東京（とうきょう）　の　ほうが　暖（あたた）かいです<br>与北京相比，东京更暖和</p>
+<p>大阪（おおさか）　より　東京　の　ほうが　にぎやかですか<br>与大阪相比，东京更热闹吗？</p>
+<h4 id="AはBほど-一类形く-ないです-二类形では-ありませんです"><a href="#AはBほど-一类形く-ないです-二类形では-ありませんです" class="headerlink" title="AはBほど　一类形く　ないです&#x2F;二类形では　ありませんです"></a>AはBほど　一类形く　ないです&#x2F;二类形では　ありませんです</h4><p>A没有B那么……</p>
+<p>東京の　冬（ふゆ）は　北京の　冬　ほど　寒（さむ）くないです<br>东京的冬天没有北京的冬天那么冷</p>
+<p>神戸は　大阪　ほど　にぎやか　では　ありません<br>神户没有大阪那么繁华</p>
+<p>私の　部屋（へや）は　王さんの　部屋　ほど　きれい　<span style="color:red"><strong>では　ありません</strong></span><br>我的房间没有小王的房间那么整洁</p>
+<h4 id="Aの中（なか）で、Bが一番（いちばん）一类形-二类形です"><a href="#Aの中（なか）で、Bが一番（いちばん）一类形-二类形です" class="headerlink" title="Aの中（なか）で、Bが一番（いちばん）一类形&#x2F;二类形です"></a>Aの中（なか）で、Bが一番（いちばん）一类形&#x2F;二类形です</h4><p>在A的范围内，B是最……的</p>
+<p>スポーツ　の　中で　サッカー　が　一番　おもしろいです</p>
+<p>日本料理（にほんりょうり）　の　中で　寿司（すし）　が　一番　おいしいです<br>日式饭菜中，寿司最好吃</p>
+<br>
+
+<p>A表示<strong>场所或时间</strong>，后面不加“の中”</p>
+<p>使用 <strong>A[场所&#x2F;时间]で 一番（いちばん）一类形&#x2F;二类形 Bは　Cです</strong> 的句型</p>
+<p>日本で　一番　高（たか）い　山（やま）は　富士山（ふじさん）です<br>日本最高的山是富士山</p>
+<p>一年（いちねん）で　一番　寒（さむ）い　月（つき）は　２月（にがつ）です<br>一年当中最冷的月份是2月份</p>
+<blockquote>
+<p>日语的“一番”只能用于 “〜の 中で” “〜で”等<strong>明确指出比较对象或范围</strong>的情况</p>
+</blockquote>
+<h4 id="Aと-Bと-どちらが-一类形-二类形ですか"><a href="#Aと-Bと-どちらが-一类形-二类形ですか" class="headerlink" title="Aと　Bと　どちらが　一类形&#x2F;二类形ですか"></a>Aと　Bと　どちらが　一类形&#x2F;二类形ですか</h4><p>询问<strong>两种</strong>事物中哪种更具有该句形容词的性质时使用</p>
+<blockquote>
+<p>どちら　是二选一时使用的疑问句，使用“<strong>〜の　ほうが〜</strong>”回答</p>
+<p>两者<strong>程度相当</strong>，使用“どちらも　〜です”回答</p>
+<p>口语中有时将“どちら”说成“どっち”</p>
+</blockquote>
+<p>日本語　と　英語（えいご）　と　<span style="color:red">どちら</span>が　難（むずか）しいですか　日语和英语哪个更难学？<br>ーー日本語　の　ほうが　難しいです		日语更难学</p>
+<p>コーヒー　と　紅茶（こうちゃ）　と　<span style="color:red">どっち</span>が　好（す）きですか	咖啡与红茶更喜欢哪个？<br>ーー紅茶　の　ほうが　好きです	更喜欢红茶<br>ーーどちらも　好きです	哪个都喜欢</p>
+<blockquote>
+<p>询问范围为<strong>两种</strong>事物，无论人、物还是时间，都可以用“どちらが”</p>
+<p>询问<strong>三种以上</strong>的事物时不能使用“どちら”</p>
+</blockquote>
+<h4 id="どの-名-いつ-どれ-だれ-何（なに）が-一番（いちばん）-一类形-二类形ですか"><a href="#どの-名-いつ-どれ-だれ-何（なに）が-一番（いちばん）-一类形-二类形ですか" class="headerlink" title="どの　名&#x2F;いつ&#x2F;どれ&#x2F;だれ&#x2F;何（なに）が　一番（いちばん）　一类形&#x2F;二类形ですか"></a>どの　名&#x2F;いつ&#x2F;どれ&#x2F;だれ&#x2F;何（なに）が　一番（いちばん）　一类形&#x2F;二类形ですか</h4><p>询问<strong>三种以上</strong>事物中哪一个更具有该句形容词的性质</p>
+<ul>
+<li>询问人用“だれが”</li>
+<li>询问物用“どの ~が”　“どれが” 或 “何が”　</li>
+<li>询问时间用“いつが”</li>
+</ul>
+<p>この　中（なか）で　<span style="color:red">どの　料理（りょうり）　が</span>　いちばん　おいしいですか　这些菜中，哪个菜最好吃<br>ーーこの　料理　が　いちばん　おいしいです　这个菜最好吃</p>
+<p>季節（きせつ）の　中で　<span style="color:red">いつ　が</span>　いちばん　好きですか　四个季节中，你最喜欢哪个？<br>ーー私は　春（はる）が　いちばん　好きです　我最喜欢春天</p>
+<p><strong>被选择的事物在上下文中提到或在眼前，使用“どの ~が”或“どれが”，否则使用“何（なに）が”</strong></p>
+<p>リンゴと　ナシと　バナナの　中で　どれが　いちばん　好きですか<br>苹果、梨和香蕉当中你最喜欢什么？</p>
+<p>果物（くだもの）の　中で　何が　いちばん　好きですか<br>水果当中你最喜欢什么？</p>
+<h3 id="表达及词语讲解"><a href="#表达及词语讲解" class="headerlink" title="表达及词语讲解"></a>表达及词语讲解</h3><h4 id="最近（さいきん）"><a href="#最近（さいきん）" class="headerlink" title="最近（さいきん）"></a>最近（さいきん）</h4><p>日语的“最近”表示过去到现在为止，不表示将来</p>
+<h4 id="〜が-いいです"><a href="#〜が-いいです" class="headerlink" title="〜が　いいです"></a>〜が　いいです</h4><p>〜が　いいです　表示“～比较好”，“我喜欢～”</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%97%A5%E8%AF%AD/" class="category-chain-item">日语</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%B0%E6%A0%87%E6%97%A5/" class="print-no-link">#新标日</a>
+      
+        <a href="/tags/%E5%88%9D%E7%BA%A7/" class="print-no-link">#初级</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>新标日-初级-第12课</div>
+      <div>http://yojayc.github.io/2026/01/24/新标日-初级-第12课/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>YoJayC</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年1月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/01/25/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC13%E8%AF%BE/" title="新标日-初级-第13课">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">新标日-初级-第13课</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/23/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC11%E8%AF%BE/" title="新标日-初级-第11课">
+                        <span class="hidden-mobile">新标日-初级-第11课</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
