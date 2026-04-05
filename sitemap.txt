@@ -93,8 +93,8 @@ http://yojayc.github.io/tags/Android/
 http://yojayc.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/
 http://yojayc.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/
 http://yojayc.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/
-http://yojayc.github.io/tags/c/
 http://yojayc.github.io/tags/linux/
+http://yojayc.github.io/tags/c/
 http://yojayc.github.io/tags/docker/
 http://yojayc.github.io/tags/python/
 http://yojayc.github.io/tags/JavaScript/
@@ -116,8 +116,8 @@ http://yojayc.github.io/tags/%E5%8A%A8%E8%AF%8D/
 http://yojayc.github.io/categories/latex/
 http://yojayc.github.io/categories/Android/
 http://yojayc.github.io/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/
-http://yojayc.github.io/categories/c/
 http://yojayc.github.io/categories/linux/
+http://yojayc.github.io/categories/c/
 http://yojayc.github.io/categories/docker/
 http://yojayc.github.io/categories/python/
 http://yojayc.github.io/categories/JavaScript%E7%AC%94%E8%AE%B0/
