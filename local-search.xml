@@ -1609,9 +1609,9 @@
     
     <tags>
       
-      <tag>HTML</tag>
-      
       <tag>代码理解</tag>
+      
+      <tag>HTML</tag>
       
     </tags>
     
@@ -1639,6 +1639,638 @@
       <tag>JavaScript</tag>
       
       <tag>代码理解</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Abstract must be defined before maketitle command. Please move it</title>
+    <link href="/2022/03/31/Abstract-must-be-defined-before-maketitle-command/"/>
+    <url>/2022/03/31/Abstract-must-be-defined-before-maketitle-command/</url>
+    
+    <content type="html"><![CDATA[<p>最近在使用<a href="https://www.acm.org/publications/proceedings-template">acmart-primary</a>的<code>sample-sigconf.tex</code>模版时，编译文档总是会出现这个问题。</p><p><code>sample-sigconf.tex</code> 中的代码示例如下：</p><figure class="highlight nim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs nim">\begin&#123;document&#125;<br><br>\title&#123;<span class="hljs-type">The</span> <span class="hljs-type">Name</span> <span class="hljs-keyword">of</span> the <span class="hljs-type">Title</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Hope</span>&#125;<br><br>\author&#123;<span class="hljs-type">Ben</span> <span class="hljs-type">Trovato</span>&#125;<br><br>.<br>.<br>.<br><br>\begin&#123;abstract&#125;<br>...<br>\<span class="hljs-keyword">end</span>&#123;abstract&#125;<br><br>\begin&#123;<span class="hljs-type">CCSXML</span>&#125;<br>...<br>\<span class="hljs-keyword">end</span>&#123;<span class="hljs-type">CCSXML</span>&#125;<br><br>\ccsdesc[<span class="hljs-number">500</span>]<span class="hljs-meta">&#123;...&#125;</span><br><br>\keywords<span class="hljs-meta">&#123;...&#125;</span><br><br>\begin&#123;teaserfigure&#125;<br>\<span class="hljs-keyword">end</span>&#123;teaserfigure&#125;<br><br>\maketitle<br></code></pre></td></tr></table></figure><p>而<code>acmart.pdf</code>的官方文档中<code>saveabstract</code>的定义如下</p><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs less">\<span class="hljs-variable">@saveabstract</span> <span class="hljs-keyword">And</span> saving the abstract<br><span class="hljs-number">1554</span> \long\def\<span class="hljs-variable">@saveabstract</span>#<span class="hljs-number">1</span>&#123;\<span class="hljs-selector-tag">if</span>@<span class="hljs-selector-tag">ACM</span>@<span class="hljs-selector-tag">maketitle</span>@<span class="hljs-selector-tag">typeset</span><br><span class="hljs-number">1555</span> \<span class="hljs-selector-tag">ClassError</span>&#123;\<span class="hljs-variable">@classname</span>&#125;&#123;<span class="hljs-selector-tag">Abstract</span> <span class="hljs-selector-tag">must</span> <span class="hljs-selector-tag">be</span> <span class="hljs-selector-tag">defined</span> <span class="hljs-selector-tag">before</span> <span class="hljs-selector-tag">maketitle</span><br><span class="hljs-number">1556</span> <span class="hljs-selector-tag">command</span>. <span class="hljs-selector-tag">Please</span> <span class="hljs-selector-tag">move</span> <span class="hljs-selector-tag">it</span>!&#125;\<span class="hljs-selector-tag">fi</span><br><span class="hljs-number">1557</span> \<span class="hljs-selector-tag">long</span>\<span class="hljs-selector-tag">gdef</span>\@<span class="hljs-selector-tag">abstract</span>&#123;<span class="hljs-selector-id">#1</span>&#125;&#125;<br><span class="hljs-number">1558</span> \@<span class="hljs-selector-tag">saveabstract</span>&#123;&#125;<br></code></pre></td></tr></table></figure><p>可以看出，<code>sample-sigconf.tex</code>中<code>abstract</code>确实是定义在<code>maketitle</code>前的。</p><p>后来根据<a href="https://tex.stackexchange.com/questions/385029/abstract-does-not-appear-with-acmart-latex-template">stackexchange</a>中的回答，将<code>\begin{document}</code>置于<code>\maketitle</code>前，可以解决这个问题</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>latex</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>latex</tag>
+      
+      <tag>论文</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>pytorch set_epoch()方法</title>
+    <link href="/2022/03/21/pytorch-set-epoch-%E6%96%B9%E6%B3%95/"/>
+    <url>/2022/03/21/pytorch-set-epoch-%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>在分布式模式下，需要在每个 <code>epoch</code> 开始时调用 <code>set_epoch()</code> 方法，然后再创建 <code>DataLoader</code> 迭代器，以使 <code>shuffle</code> 操作能够在多个 <code>epoch</code> 中正常工作。 否则，<code>dataloader</code> 迭代器产生的数据将始终使用相同的顺序。</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">sampler = <span class="hljs-built_in">DistributedSampler</span>(dataset) <span class="hljs-keyword">if</span> is_distributed <span class="hljs-keyword">else</span> None<br>loader = <span class="hljs-built_in">DataLoader</span>(dataset, shuffle=(sampler is None),<br>                    sampler=sampler)<br><span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(start_epoch, n_epochs):<br>    <span class="hljs-keyword">if</span> is_distributed:<br>        sampler<span class="hljs-selector-class">.set_epoch</span>(epoch)<br>    <span class="hljs-built_in">train</span>(loader)<br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.pytorch.org/docs/stable/data.html">https://docs.pytorch.org/docs/stable/data.html</a></p><p><a href="https://zhuanlan.zhihu.com/p/97115875">https://zhuanlan.zhihu.com/p/97115875</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pytorch</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>pytorch</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>深度学习基础知识</title>
+    <link href="/2021/12/05/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <url>/2021/12/05/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247485927&idx=1&sn=606f87b569a0eb7c29f1c2374ff698dd&chksm=e8d3be95dfa43783ddbd577ce8cc7db64c1b02bb55480c1d3f2ba8e06e4b948d1fd6b8e2defc&scene=21&poc_token=HCnc0Wmj4OruxqV04JOwHbvavZByJvs0DhivS3CS">入门概念</a></p><p><a href="https://zhuanlan.zhihu.com/p/27657264">迁移学习</a></p><p><a href="https://cloud.tencent.com/developer/article/1178279">配置神经网络的层数和结点数</a></p><p><a href="https://stackoverflow.com/questions/39691902/ordering-of-batch-normalization-and-dropout">Ordering or batch normalization and dropout</a></p><p><a href="https://blog.csdn.net/m0_37870649/article/details/82025238">batch norm, relu, dropout 等的相对顺序</a></p><p><a href="https://stats.stackexchange.com/questions/306742/how-to-compute-accuracy-for-multi-class-classification-problem-and-how-is-accura">How to compute accuracy for multi class classification problem</a></p><p><a href="https://stats.stackexchange.com/questions/423585/what-is-the-difference-between-the-average-class-accuracy-and-average-instance-a">model evaluation</a></p><p><a href="https://blog.csdn.net/weixin_37641832/article/details/104434509">混淆矩阵、准确率、精确率、召回率</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>深度学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>深度学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>pytorch中tensor进行reshape操作后原始数据的顺序</title>
+    <link href="/2021/11/19/pytorch%E4%B8%ADtensor%E8%BF%9B%E8%A1%8Creshape%E6%93%8D%E4%BD%9C%E5%90%8E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E9%A1%BA%E5%BA%8F/"/>
+    <url>/2021/11/19/pytorch%E4%B8%ADtensor%E8%BF%9B%E8%A1%8Creshape%E6%93%8D%E4%BD%9C%E5%90%8E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E9%A1%BA%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<p>在<code>pytorch</code>中，经常需要对<code>tensor</code>进行<code>reshape</code>操作，使其符合特定网络的输入格式。在将网络的输</p><p>出重新<code>reshape</code>回输入前的形状时，<code>tensor</code>的特征是否还是按输入的顺序进行排列？</p><p>带着疑问做了下面的实验</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">x1</span> = torch.randn(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-attribute">x2</span> = torch.randn(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-attribute">x3</span> = torch.randn(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)<br><span class="hljs-attribute">x4</span> = torch.stack((x1, x2, x3), <span class="hljs-number">0</span>)<br><br><span class="hljs-attribute">shape</span> = x4.shape<br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;x4:&quot;</span>, x4.shape)<br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;x4:\n&quot;</span>, x4)<br><span class="hljs-attribute">x4</span> = x4.reshape(x4.shape[<span class="hljs-number">0</span>]*x4.shape[<span class="hljs-number">1</span>], x4.shape[-<span class="hljs-number">1</span>])<br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;reshaped x4:&quot;</span>, x4.shape)<br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;reshaped x4:\n&quot;</span>, x4)<br><span class="hljs-attribute">x4</span> = x4.reshape(shape[<span class="hljs-number">0</span>], shape[<span class="hljs-number">1</span>], shape[-<span class="hljs-number">1</span>])<br><span class="hljs-attribute">print</span>(<span class="hljs-string">&quot;recovered x4:\n&quot;</span>, x4, x4.shape) # print(<span class="hljs-string">&quot;x5:\n&quot;</span>, x5)<br><br></code></pre></td></tr></table></figure><p>输出</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs subunit">x4: torch.Size([3, 2, 3])<br>x4:<br> tensor([[[<span class="hljs-string">-1</span>.2061,  0.0617,  1.1632],<br>         [<span class="hljs-string">-1</span>.5008, <span class="hljs-string">-1</span>.5944, <span class="hljs-string">-0</span>.0187]],<br><br>        [[<span class="hljs-string">-2</span>.1325, <span class="hljs-string">-0</span>.5270, <span class="hljs-string">-0</span>.1021],<br>         [ 0.0099, <span class="hljs-string">-0</span>.4454, <span class="hljs-string">-1</span>.4976]],<br><br>        [[<span class="hljs-string">-0</span>.9475, <span class="hljs-string">-0</span>.6130, <span class="hljs-string">-0</span>.1291],<br>         [<span class="hljs-string">-0</span>.4107,  1.3931, <span class="hljs-string">-0</span>.0984]]])<br>reshaped x4: torch.Size([6, 3])<br>reshaped x4:<br> tensor([[<span class="hljs-string">-1</span>.2061,  0.0617,  1.1632],<br>        [<span class="hljs-string">-1</span>.5008, <span class="hljs-string">-1</span>.5944, <span class="hljs-string">-0</span>.0187],<br>        [<span class="hljs-string">-2</span>.1325, <span class="hljs-string">-0</span>.5270, <span class="hljs-string">-0</span>.1021],<br>        [ 0.0099, <span class="hljs-string">-0</span>.4454, <span class="hljs-string">-1</span>.4976],<br>        [<span class="hljs-string">-0</span>.9475, <span class="hljs-string">-0</span>.6130, <span class="hljs-string">-0</span>.1291],<br>        [<span class="hljs-string">-0</span>.4107,  1.3931, <span class="hljs-string">-0</span>.0984]])<br>recovered x4:<br> tensor([[[<span class="hljs-string">-1</span>.2061,  0.0617,  1.1632],<br>         [<span class="hljs-string">-1</span>.5008, <span class="hljs-string">-1</span>.5944, <span class="hljs-string">-0</span>.0187]],<br><br>        [[<span class="hljs-string">-2</span>.1325, <span class="hljs-string">-0</span>.5270, <span class="hljs-string">-0</span>.1021],<br>         [ 0.0099, <span class="hljs-string">-0</span>.4454, <span class="hljs-string">-1</span>.4976]],<br><br>        [[<span class="hljs-string">-0</span>.9475, <span class="hljs-string">-0</span>.6130, <span class="hljs-string">-0</span>.1291],<br>         [<span class="hljs-string">-0</span>.4107,  1.3931, <span class="hljs-string">-0</span>.0984]]]) torch.Size([3, 2, 3])<br></code></pre></td></tr></table></figure><p>将<code>x1</code>, <code>x2</code>和<code>x3</code>三个<code>tensor</code>通过<code>stack</code>操作堆到一起后通过<code>reshape</code>操作改变维度的形状</p><p>接着再将<code>reshape</code>完的<code>tensor</code>变回原来的形状，发现输出数据的顺序和改变形状之前相同</p><p>表明在<code>reshape</code>过程中，<code>tensor</code>能够保持数据的顺序</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pytorch</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>pytorch</tag>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>python列表解析实例</title>
+    <link href="/2021/10/28/python%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%AE%9E%E4%BE%8B/"/>
+    <url>/2021/10/28/python%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%AE%9E%E4%BE%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="if起条件判断作用，满足条件的，返回最终生成的列表"><a href="#if起条件判断作用，满足条件的，返回最终生成的列表" class="headerlink" title="if起条件判断作用，满足条件的，返回最终生成的列表"></a>if起<span style="color:red">条件判断</span>作用，满足条件的，返回最终生成的列表</h1><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-name">i</span> for i in range(<span class="hljs-name">k</span>) if condition]<br></code></pre></td></tr></table></figure><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-string">[i for i in range(10) if i%2 == 0]</span><br><br>output:<br><span class="hljs-string"></span><br><span class="hljs-string">[0, 2, 4, 6, 8]</span><br></code></pre></td></tr></table></figure><h1 id="if…else用来判断或赋值，满足条件的i以及j生成最终的列表"><a href="#if…else用来判断或赋值，满足条件的i以及j生成最终的列表" class="headerlink" title="if…else用来判断或赋值，满足条件的i以及j生成最终的列表"></a>if…else用来<span style="color:red">判断或赋值</span>，满足条件的i以及j生成最终的列表</h1><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel">[i <span class="hljs-keyword">if</span> <span class="hljs-keyword">condition</span> <span class="hljs-keyword">else</span> j <span class="hljs-keyword">for</span> <span class="hljs-keyword">exp</span>]<br></code></pre></td></tr></table></figure><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sas">[i <span class="hljs-keyword">if</span> i == 0 <span class="hljs-keyword">else</span> 100 for i <span class="hljs-keyword">in</span> <span class="hljs-meta">range</span>(10)]<br><br><span class="hljs-keyword">output</span>:<br><br>[0, 100, 100, 100, 100, 100, 100, 100, 100, 100]<br><br></code></pre></td></tr></table></figure><p>应用在代码中：</p><figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs roboconf">state_dict = &#123;<br>            <span class="hljs-attribute">k</span>: v<br>            for k, v in state_dict<span class="hljs-variable">.items</span>()<br>            if k in model_dict and v<span class="hljs-variable">.shape</span> == model_dict[k]<span class="hljs-variable">.shape</span><br>        &#125;<br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/ZK_J1994/article/details/72809260">https://blog.csdn.net/ZK_J1994/article/details/72809260</a></p><p><a href="https://github.com/meder411/Tangent-Images/blob/master/experiments/semantic_segmentation/ss/models/build.py">https://github.com/meder411/Tangent-Images/blob/master/experiments/semantic_segmentation/ss/models/build.py</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>不使用anaconda安装pyembree</title>
+    <link href="/2021/09/26/%E4%B8%8D%E4%BD%BF%E7%94%A8anaconda%E5%AE%89%E8%A3%85pyembree/"/>
+    <url>/2021/09/26/%E4%B8%8D%E4%BD%BF%E7%94%A8anaconda%E5%AE%89%E8%A3%85pyembree/</url>
+    
+    <content type="html"><![CDATA[<p><code>pyembree</code>官方给出的安装方法是通过<code>conda</code>进行安装</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">conda <span class="hljs-keyword">install</span> -c conda-forge pyembree<br></code></pre></td></tr></table></figure><p>并没有<code>pip</code>的版本，想要安装<code>pyembree</code>就得先装<code>anaconda</code>，在<code>docker</code>里有点不方便。</p><p>在<a href="https://github.com/scopatz/pyembree/issues/23">github</a>上查到可以通过<code>.tar.gz</code>文件进行手动安装</p><p>首先将<code>embree.bash</code>中的内容保存到本地文件<code>e.bash</code>里，之后在命令行执行</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">bash </span>e.<span class="hljs-keyword">bash</span><br></code></pre></td></tr></table></figure><p>最后更新环境变量</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">LD_LIBRARY_PATH</span>=/usr/local/lib:$LD_LIBRARY_PATH<br></code></pre></td></tr></table></figure><p>安装成功</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/scopatz/pyembree/issues/23">https://github.com/scopatz/pyembree/issues/23</a></p><p><a href="https://github.com/mikedh/trimesh/blob/master/docker/builds/embree.bash">https://github.com/mikedh/trimesh/blob/master/docker/builds/embree.bash</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Spherical Package编译记录</title>
+    <link href="/2021/09/12/Spherical-Package%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/"/>
+    <url>/2021/09/12/Spherical-Package%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<p>最近要用到<code>Spherical-Package</code>，这个包有两种安装方法，一种是通过<code>Docker</code>安装，另一种是直接手动安装。但是服务器上网不方便，所以一开始先手动装。</p><p>手动装的问题基本上都是没有<code>root</code>权限、安装版本不匹配、依赖错误等。最后经过一番折腾装好了，但是测试的时候还是失败，也找不到问题出在哪里。猜测可能是手动装的<code>cgal</code>有问题，因为通过<code>apt-get</code>安装的<code>cgal</code>版本太低，所以只能手动装，但是无奈运行不起来。</p><p>因为要用这个库去处理数据，所以必须装好，太难了。后面开始用<code>Docker</code>装。</p><p>一开始在<code>Docker Hub</code>上找到了已经装好的<code>Spherical-Package</code>，结果下下来发现运行不了，运行测试样例也是失败的。这个Hub是去年上传的，版本也比较低，不支持新的函数。</p><p>后面就先尝试在<code>Linux</code>上连接网络，先用别人的代码进行登录，但是</p><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit"><span class="hljs-built_in">ping</span> www.baidu.com<br></code></pre></td></tr></table></figure><p>的时候总是连接超时，说明还是没有连上网。 接着打开图形界面的<code>firefox</code>，在网页登录界面登录后成功<code>ping</code>通。</p><p>后面又遇到几个问题，最主要的就是选择的<code>Ubuntu</code>镜像版本太低，里面的<code>libcgal-dev</code>库的版本也很低，装好了还是跑不起来。而且因为系统的限制还装不了新版本，除非再自己手动安装，但是这需要删掉系统上的一些依赖库，重新装这些依赖库的时候又会冲突。最后在保证<code>cuda</code>版本和本地主机上一样的前提下选择了最高的<code>Ubuntu</code>版本作为基础镜像，通过<code>Docker</code>成功装好了<code>Spherical-Package</code>库的环境，真不容易。</p><p>需要注意：</p><p><code>torch</code>的版本不能太高，否则<code>docker</code>装好了还是会报错。试过版本在<code>1.4-1.6</code>之间都行，<code>1.8</code>会报错</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/meder411/Spherical-Package">https://github.com/meder411/Spherical-Package</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120175550?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120175550?spm=1001.2014.3001.5501</a> </p><p><a href="https://blog.csdn.net/YoJayC/article/details/120098099?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120098099?spm=1001.2014.3001.5501</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120209482?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120209482?spm=1001.2014.3001.5501</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120217018?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120217018?spm=1001.2014.3001.5501</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120218464?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120218464?spm=1001.2014.3001.5501</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120222959?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120222959?spm=1001.2014.3001.5501</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120243520?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120243520?spm=1001.2014.3001.5501</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120242447?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120242447?spm=1001.2014.3001.5501</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+      <tag>linux</tag>
+      
+      <tag>包安装</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Dockerfile基础镜像选择</title>
+    <link href="/2021/09/11/Dockerfile%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F%E9%80%89%E6%8B%A9/"/>
+    <url>/2021/09/11/Dockerfile%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F%E9%80%89%E6%8B%A9/</url>
+    
+    <content type="html"><![CDATA[<p><code>Dockerfile</code>的最开始都是<code>From xxx</code>，表示选择的基础镜像是什么版本，可以在<code>nvidia</code>的<code>gitlab</code>上选择版本。需要注意<code>nvidia/cuda:latest</code>的表示方式已经被弃用，可以看前面写的文章</p><p>例如</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">FROM</span> nvidia/cuda:<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-cudnn7-devel-ubuntu16.<span class="hljs-number">04</span><br></code></pre></td></tr></table></figure><p>其中<code>10.0</code>是指<code>cuda</code>的版本</p><p><code>cudnn7</code>指与<code>cuda10.0</code>对应的<code>cudnn</code>版本</p><p><code>devel</code>指镜像中的<code>nvcc</code>包包含<code>cuda</code></p><p><code>ubuntu16.04</code>指镜像中<code>ubuntu</code>的版本</p><p>其中，除了<code>ubuntu</code>版本可以与本地不同之外，其余的都要和主机上的版本对应，否则运行<code>docker</code>将无法使用本地的<code>GPU</code>硬件。</p><p><code>ubuntu</code>版本能选最高就选最高，因为低版本能安装的库版本也很低，无法使用一些新功能</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md">https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md</a></p><p><a href="https://blog.csdn.net/u011622208/article/details/113650011">https://blog.csdn.net/u011622208/article/details/113650011</a></p><p><a href="https://blog.csdn.net/YoJayC/article/details/120209482?spm=1001.2014.3001.5501">https://blog.csdn.net/YoJayC/article/details/120209482?spm=1001.2014.3001.5501</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Depends: gcc-5-base (= 5.3.1-14ubuntu2) but 5.4.0-6ubuntu1~16.04.11 is to be installed</title>
+    <link href="/2021/09/11/Depends-gcc-5-base-5-3-1-14ubuntu2-but-5-4-0-6ubuntu1-16-04-11-is-to-be-installed/"/>
+    <url>/2021/09/11/Depends-gcc-5-base-5-3-1-14ubuntu2-but-5-4-0-6ubuntu1-16-04-11-is-to-be-installed/</url>
+    
+    <content type="html"><![CDATA[<p>在<a href="https://launchpad.net/ubuntu/xenial/amd64/cpp-5/5.4.0-6ubuntu1~16.04.11">5.4.0-6ubuntu1~16.04.11 : cpp-5 : amd64 : Xenial (16.04) : Ubuntu</a>上下载对应的版本，国内源的版本都是<code>5.4.0-6ubuntu1~16.04.12</code>，最后一位是<code>12</code>，和服务器上的不匹配</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>c++</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>c++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Dockerfile安装python3.7</title>
+    <link href="/2021/09/11/Dockerfile%E5%AE%89%E8%A3%85python3-7/"/>
+    <url>/2021/09/11/Dockerfile%E5%AE%89%E8%A3%85python3-7/</url>
+    
+    <content type="html"><![CDATA[<p>用<code>Dockerfile</code>构造镜像时需要用到<code>python3.7</code>，但是<code>python</code>默认安装的版本是<code>3.5</code>。需要手动安装<code>python3.7</code></p><p>安装的主要代码如下：</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vim">wget https://www.<span class="hljs-keyword">python</span>.org/ftp/<span class="hljs-keyword">python</span>/<span class="hljs-number">3.7</span>.<span class="hljs-number">3</span>/Python-<span class="hljs-number">3.7</span>.<span class="hljs-number">3</span>.tgz<br>tar -xvf Python-<span class="hljs-number">3.7</span>.<span class="hljs-number">3</span>.tgz<br><span class="hljs-keyword">cd</span> Python-<span class="hljs-number">3.7</span>.<span class="hljs-number">3</span><br>./configure --enable-loadable-sqlite-extensions<br><span class="hljs-keyword">make</span><br><span class="hljs-keyword">make</span> install<br></code></pre></td></tr></table></figure><h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>使用<code>tar</code>命令时会报错</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">tar (child):XXX: Cannot <span class="hljs-built_in">open</span>: No such <span class="hljs-built_in">file</span> <span class="hljs-keyword">or</span> <span class="hljs-built_in">directory</span><br></code></pre></td></tr></table></figure><p>说明<code>wget</code>并不在当前目录，使用<code>wget -P</code> 指定目录安装后还是会报同样的错误，最后在本地下载好对应的<code>python</code>文件，放到和<code>Dockerfile</code>同一级的目录中，然后用<code>COPY</code>命令拷贝到<code>docker</code>中执行安装。</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">COPY</span> Python-<span class="hljs-number">3</span>.<span class="hljs-number">7</span>.<span class="hljs-number">3</span>.tgz /usr/local/src/<br></code></pre></td></tr></table></figure><p><code>ModuleNotFoundError: No module named &#39;_ctypes&#39;</code>，原因是缺少<code>libffi-dev</code>库<br>在安装<code>python</code>前执行</p><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">apt-<span class="hljs-built_in">get</span> install libffi-<span class="hljs-built_in">dev</span><br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/u012768124/article/details/104758948">https://blog.csdn.net/u012768124/article/details/104758948</a></p><p><a href="https://blog.csdn.net/wang725/article/details/79905612">https://blog.csdn.net/wang725/article/details/79905612</a></p><p><a href="https://blog.csdn.net/leiyu1139/article/details/53428086">https://blog.csdn.net/leiyu1139/article/details/53428086</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+      <tag>docker</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Dockerfile pip3 install cannot assign requested address</title>
+    <link href="/2021/09/10/Dockerfile-pip3-install-cannot-assign-requested-address/"/>
+    <url>/2021/09/10/Dockerfile-pip3-install-cannot-assign-requested-address/</url>
+    
+    <content type="html"><![CDATA[<p>临时使用国内镜像可解决</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">pip</span> install -i https://pypi.tuna.tsinghua.edu.cn/simple pyspider<br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/developer-ios/p/7628733.html">https://www.cnblogs.com/developer-ios/p/7628733.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>docker</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Dockerfile unable to access ‘.git/‘: Failed to connect to gitlab.com</title>
+    <link href="/2021/09/10/Dockerfile-unable-to-access-%E2%80%98-git-%E2%80%98-Failed-to-connect-to-gitlab-com/"/>
+    <url>/2021/09/10/Dockerfile-unable-to-access-%E2%80%98-git-%E2%80%98-Failed-to-connect-to-gitlab-com/</url>
+    
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在命令行手动<code>build</code>一个<code>dockerfile</code>时无法连接到<code>git</code>。</p><p><code>Dockerfile</code>中的系统和本地的不同，适用于本地的配置直接在<code>Dockerfile</code>中使用无效</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">git</span> config --global http.proxy &#x27;http://<span class="hljs-number">172</span>.<span class="hljs-number">31</span>.xx.xx:<span class="hljs-number">808</span>&#x27;<br><span class="hljs-attribute">git</span> config --global https.proxy &#x27;https://<span class="hljs-number">172</span>.<span class="hljs-number">31</span>.xx.xx:<span class="hljs-number">808</span>&#x27;<br></code></pre></td></tr></table></figure><p>在<code>Dockerfile</code>中使用<code>ifconfig</code>命令提示</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nix"><span class="hljs-operator">/</span>bin<span class="hljs-operator">/</span><span class="hljs-params">sh:</span> <span class="hljs-number">1</span>: <span class="hljs-params">ifconfig:</span> not found<br></code></pre></td></tr></table></figure><p>无法找到对应的<code>IP</code></p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>直接在本地下载好，使用<code>COPY</code>命令复制到<code>Docker</code>中</p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>下载好的文件和<code>Dockerfile</code>要在同一级目录，因为<code>COPY</code> 和 <code>ADD</code> 命令不能拷贝上下文之外的本地文件</p><p><code>COPY</code>命令要放在运行原来<code>git</code>命令的<code>RUN</code>命令前</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-keyword">COPY</span> eigen /usr/<span class="hljs-keyword">local</span>/src/eigen<br><span class="hljs-keyword">RUN</span> <span class="hljs-keyword">cd</span> /usr/<span class="hljs-keyword">local</span>/src \<br>    # &amp;&amp; ifconfig \<br>    # &amp;&amp; git config --<span class="hljs-keyword">global</span> http.proxy &#x27;http:<span class="hljs-comment">//172.31.70.88:808&#x27; \</span><br>    # &amp;&amp; git config --<span class="hljs-keyword">global</span> https.proxy &#x27;https:<span class="hljs-comment">//172.31.70.88:808&#x27; \</span><br>    # &amp;&amp; git clone https:<span class="hljs-comment">//gitlab.com/libeigen/eigen.git \</span><br>    # &amp;&amp; <span class="hljs-keyword">COPY</span> /data/cuiyujie/lib/Spherical-Package/eigen . \<br>    &amp;&amp; <span class="hljs-keyword">cd</span> eigen \<br>    &amp;&amp; <span class="hljs-keyword">mkdir</span> build \<br>    &amp;&amp; <span class="hljs-keyword">cd</span> build \<br>    &amp;&amp; cmake .. \<br>    &amp;&amp; make install -j 4<br></code></pre></td></tr></table></figure><p>否则放到其它地方会重新构建一个<code>Docker</code>，又要重新执行一遍前面的命令</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/sparkdev/p/9573248.html">https://www.cnblogs.com/sparkdev/p/9573248.html</a></p><p><a href="https://blog.csdn.net/qq_28880087/article/details/110441110">https://blog.csdn.net/qq_28880087/article/details/110441110</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Error response from daemon: manifest for nvidia/cuda:latest not found: manifest unknown: manifest</title>
+    <link href="/2021/09/09/Error-response-from-daemon-manifest-for-nvidia-cuda-latest-not-found-manifest-unknown-manifest/"/>
+    <url>/2021/09/09/Error-response-from-daemon-manifest-for-nvidia-cuda-latest-not-found-manifest-unknown-manifest/</url>
+    
+    <content type="html"><![CDATA[<h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><blockquote><p>The “latest” tag for CUDA, CUDAGL, and OPENGL images has been deprecated on NGC and Docker Hub</p></blockquote><p><code>Docker Hub</code>中的<code>CUDA</code>, <code>CUDAGL</code>和<code>OPENGL</code>镜像已经弃用”<code>latest</code>“标签，直接使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull nvidia/cuda<br></code></pre></td></tr></table></figure><p>或者在<code>Dockerfile</code>中指定</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">FROM nvidia/cuda:latest<br></code></pre></td></tr></table></figure><p>都会出现</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">Error </span>response from daemon: manifest for nvidia/cuda:latest not found: manifest unknown: manifest unknown<br></code></pre></td></tr></table></figure><p>错误</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>在<code>supported-tags</code>中找到与自己系统对应的<code>cuda</code>版本，并将<code>nvidia/cuda:latest</code>中的<code>latest</code>改成对应的版本</p><p>例如：</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">nvidia</span>/cuda:<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-cudnn7-devel-ubuntu16.<span class="hljs-number">04</span><br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hub.docker.com/r/nvidia/cuda">https://hub.docker.com/r/nvidia/cuda</a></p><p><a href="https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md">https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md</a></p><p><a href="https://blog.csdn.net/u011622208/article/details/113650011">https://blog.csdn.net/u011622208/article/details/113650011</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>windows10 : wsl --set-version 2 Error: 0xffffffff</title>
+    <link href="/2021/09/09/windows10-wsl-set-version-2-Error-0xffffffff/"/>
+    <url>/2021/09/09/windows10-wsl-set-version-2-Error-0xffffffff/</url>
+    
+    <content type="html"><![CDATA[<p>在<code>windows</code>上安装了<code>Linux</code>子系统，而且安装了<code>wsl2</code>更新，但是执行</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams">wsl --<span class="hljs-keyword">set</span>-version <span class="hljs-comment">Ubuntu 2</span><br></code></pre></td></tr></table></figure><p>时出现<code>Error: 0xffffffff</code>错误，导致无法更新到<code>wsl2</code>。后来查到出错是因为<code>53</code>号端口被占用，将占用端口的程序关掉之后更新成功。</p><p>端口占用问题同样导致<code>windows</code>版<code>docker</code>无法启动<code>WSL2</code>，关掉程序后启动成功</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/ayanmw/p/14868526.html">https://www.cnblogs.com/ayanmw/p/14868526.html</a></p><p><a href="https://github.com/microsoft/WSL/issues/4364">https://github.com/microsoft/WSL/issues/4364</a></p><p><a href="https://blog.csdn.net/LaughingMei/article/details/109736965">https://blog.csdn.net/LaughingMei/article/details/109736965</a></p><p><a href="https://blog.csdn.net/zhouxukun123/article/details/79383130">https://blog.csdn.net/zhouxukun123/article/details/79383130</a></p><p><a href="https://www.derekwei.com/2020/09/wsl-2-%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%87%E7%BA%A7%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">https://www.derekwei.com/2020/09/wsl-2-%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%87%E7%BA%A7%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+      <tag>windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>docker 保存镜像</title>
+    <link href="/2021/09/08/docker-%E4%BF%9D%E5%AD%98%E9%95%9C%E5%83%8F/"/>
+    <url>/2021/09/08/docker-%E4%BF%9D%E5%AD%98%E9%95%9C%E5%83%8F/</url>
+    
+    <content type="html"><![CDATA[<p>因为服务器上无法联网下载<code>docker</code>镜像，所以通过<code>windows</code>本地下载对应的镜像，之后再传到服务器上。</p><p>本地安装完<code>docker</code>后出现<code>Failed to deploy distro docker-desktop</code>错误，主要原因是<code>WSL2</code>，尝试了很多方法都没有解决。取消勾选<code>docker-General-Use the WSL 2 base engine</code>后能够正常启动<code>docker</code>。</p><p>本地下载完镜像之后先使用</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker save -o target_location image_names</span><br></code></pre></td></tr></table></figure><p>命令进行压缩，镜像有<code>16G</code>，存储的压缩文件也是<code>16G</code>，而且耗时太久，过了一天命令还没执行完</p><p>最后改成</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">docker save myimage<span class="hljs-punctuation">:</span>latest <span class="hljs-string">| gzip &gt; myimage_latest.tar.gz</span><br></code></pre></td></tr></table></figure><p>用<code>gzip</code>进行压缩，保存的文件明显变小，几分钟就压缩完了</p><h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p><code>docker save</code>时要使用镜像名，而不是<code>Image ID</code>，否则服务器导入镜像之后<code>REPOSITORY</code>和<code>TAG</code>都是<code>&lt;none&gt;</code>，导致无法启动镜像</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">REPOSITORY</span>   TAG       IMAGE ID       CREATED              SIZE<br><span class="hljs-section">&lt;none&gt;</span>       <span class="hljs-section">&lt;none&gt;</span>    <span class="hljs-attribute">6d58f24de00f</span>   About a minute ago   <span class="hljs-number">16</span>.<span class="hljs-number">9</span>GB<br></code></pre></td></tr></table></figure><p>删除镜像时要先删除运行镜像的<code>container</code></p><p><code>docker load</code>时要加上<code>-i</code>，之后再接着<code>image name</code></p><p>感觉<code>import</code>和<code>load</code>差别不是很大，具体可以看<a href="https://blog.csdn.net/guizaijianchic/article/details/78324646">这篇文章</a></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/guizaijianchic/article/details/78324646">https://blog.csdn.net/guizaijianchic/article/details/78324646</a></p><p><a href="https://docs.docker.com/reference/cli/docker/image/save/">https://docs.docker.com/reference/cli/docker/image/save/</a></p><p><a href="https://github.com/docker/for-win/issues/8204">https://github.com/docker/for-win/issues/8204</a></p><p><a href="https://blog.csdn.net/tongzidane/article/details/115355668">https://blog.csdn.net/tongzidane/article/details/115355668</a></p><p><a href="https://blog.csdn.net/m0_37942145/article/details/105810236">https://blog.csdn.net/m0_37942145/article/details/105810236</a></p><p><a href="https://blog.csdn.net/m0_37942145/article/details/105810236">https://blog.csdn.net/m0_37942145/article/details/105810236</a></p><p><a href="https://yeasy.gitbook.io/docker_practice/di-yi-bu-fen-ru-men-pian/04_image/4.6_other">https://yeasy.gitbook.io/docker_practice/di-yi-bu-fen-ru-men-pian/04_image/4.6_other</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>docker</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>深度学习</tag>
+      
+      <tag>docker</tag>
+      
+      <tag>windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>非root解决ImportError</title>
+    <link href="/2021/09/08/%E9%9D%9Eroot%E8%A7%A3%E5%86%B3ImportError/"/>
+    <url>/2021/09/08/%E9%9D%9Eroot%E8%A7%A3%E5%86%B3ImportError/</url>
+    
+    <content type="html"><![CDATA[<p>执行代码时出现题述问题</p><p>执行下面的命令发现没有<code>GLIBCXX_3.4.26</code>对应的版本</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">strings <span class="hljs-regexp">/home/</span>app<span class="hljs-regexp">/anaconda3/</span>lib/libstdc++.so.<span class="hljs-number">6</span> | <span class="hljs-keyword">grep</span> GLIBCXX<br></code></pre></td></tr></table></figure><p>根据<a href="https://stackoverflow.com/questions/59921248/how-to-update-libstdc-so-6-or-change-the-file-to-use-on-tensorflow-python">stackoverflow</a>上的操作，在<code>anaconda/lib</code>下发现有<code>GLIBCXX_3.4.26</code>的版本</p><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">strings <span class="hljs-regexp">/home/</span>app<span class="hljs-regexp">/anaconda3/</span>lib/libstdc++.so.<span class="hljs-number">6</span> | <span class="hljs-keyword">grep</span> GLIBCXX<br></code></pre></td></tr></table></figure><p>再根据<a href="https://github.com/lhelontra/tensorflow-on-arm/issues/13">github</a>上的回答，在<code>./bashrc</code>中执行</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">LD_LIBRARY_PATH</span>=/home/app/anaconda3/lib<br></code></pre></td></tr></table></figure><p>指定<code>libstdc++.so.6</code>所在的目录</p><p>最后重新执行代码不再报错</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://stackoverflow.com/questions/59921248/how-to-update-libstdc-so-6-or-change-the-file-to-use-on-tensorflow-python">https://stackoverflow.com/questions/59921248/how-to-update-libstdc-so-6-or-change-the-file-to-use-on-tensorflow-python</a></p><p><a href="https://github.com/lhelontra/tensorflow-on-arm/issues/13">https://github.com/lhelontra/tensorflow-on-arm/issues/13</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux手动安装库出错</title>
+    <link href="/2021/09/04/Linux%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%BA%93%E5%87%BA%E9%94%99/"/>
+    <url>/2021/09/04/Linux%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%BA%93%E5%87%BA%E9%94%99/</url>
+    
+    <content type="html"><![CDATA[<p>服务器上没有<code>root</code>权限，管理员用命令帮忙装的版本太低了，所以需要手动安装高版本的库</p><p>但是装完之后发现<code>lib</code>目录下只有<code>.cmake</code>文件，没有<code>.so</code>文件</p><p>问题在于<code>cmake</code>之后没有执行<code>make</code>就直接执行<code>make install</code>了。在<code>cmake</code>后执行<code>make</code>，再执行<code>make install</code>后安装正常</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>/CGAL-5.3<br><span class="hljs-built_in">mkdir</span> build<br><span class="hljs-built_in">cd</span> build<br>cmake ..                                                                          <span class="hljs-comment"># configure CGAL</span><br>make install<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Could NOT find OpenSSL (missing: OPENSSL_LIBRARIES)</title>
+    <link href="/2021/09/03/Could-NOT-find-OpenSSL-missing-OPENSSL-LIBRARIES/"/>
+    <url>/2021/09/03/Could-NOT-find-OpenSSL-missing-OPENSSL-LIBRARIES/</url>
+    
+    <content type="html"><![CDATA[<p>手动安装<code>cmake</code>，执行<code>./bootstrap</code>后出现标题所示错误提示，因为这一步出错，所以后面的步骤都无法继续进行</p><p>一开始以为是服务器上没有装<code>openssl</code>，使用<code>openssl version</code>命令发现有对应的版本，但是路径下没有<code>include</code>等文件夹</p><p>接着手动安装<code>openssl</code>，并且设置临时系统变量</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">OPENSSL_ROOT_DIR</span>=/data/lib/openssl-1.1.1k<br><span class="hljs-built_in">export</span> <span class="hljs-attribute">OPENSSL_INCLUDE_DIR</span>=/data/lib/openssl-1.1.1k/include<br></code></pre></td></tr></table></figure><p>重新执行<code>./bootstrap</code>后没有报错，成功安装</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/substack/libssh/issues/1">https://github.com/substack/libssh/issues/1</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>linux</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Attention Rollout</title>
+    <link href="/2021/08/14/Attention-Rollout/"/>
+    <url>/2021/08/14/Attention-Rollout/</url>
+    
+    <content type="html"><![CDATA[<h1 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h1><p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/ut/rollout.png" alt="图1"></p><p>从图<code>1a</code>中的原始<code>attention</code>可以看出，只有在最开始的几层，不同位置的<code>attention</code>模式有一些区别，但是更高层中的<code>attention</code>权重更加一致。这表示随着模型层数的增加，嵌入的内容变得更加情境化，可能都带有类似的信息。此外，另一篇文章中表示注意力权重不一定与输入<code>token</code>的相对重要性相对应。</p><p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/ut/spearmanr.png" alt="图2"></p><p>作者使用输入消融法，<code>blank-out</code>方法来估计每个输入<code>token</code>的重要性。<code>Blank-out</code>用<code>UNK</code>逐个替换输入中的每个<code>token</code>，衡量其对预测正确类别的影响程度。接着计算网络最后一层类别<code>Embedding</code>的<code>attention</code>权重和<code>blank-out</code>方法算出的重要性得分之间的<code>Spearman</code>秩相关系数，发现除了第一层之外，其他层的相关系数都很低，证实了前述文章中的观点。从表2可知，输入梯度和重要性得分之间的<code>Spearman</code>秩相关系数同样也很低。</p><h1 id="Attention-Rollout"><a href="#Attention-Rollout" class="headerlink" title="Attention Rollout"></a>Attention Rollout</h1><p>给定一个模型和编码的<code>Attention</code>权重，<code>Attention rollout</code>递归计算每一层的<code>token attetions</code>。计算信息从输入层到更高层中的编码时，需要同时考虑模型的残差连接和<code>attention</code>权重，所以用额外表示残差连接的权重来增强<code>attention graph</code>。</p><p>给定一个具有残差链接的<code>attention</code>模块，将第$l+1$层的<code>attention</code>值表示成$V_{l+1}&#x3D;V_t+W_attV_t$，其中$W_att$是<code>attention</code>矩阵，因此有$V_{l+1}&#x3D;(W_att+I)V_l$。所以给<code>attention</code>矩阵增加一个单位矩阵来表示残差连接，然后重新归一化相加后的权重。计算的结果是$A&#x3D;0.5W_att+0.5I$，$A$表示用残差连接更新后的原始<code>attention</code>。</p><p>给定一个$L$层的<code>Transformer</code>，目标是计算从$l_i$层所有位置到$l_j$层所有位置的<code>attention</code>，其中$j&lt;i$（反向计算）。在<code>attention</code>图中，从$l_i$层位置<code>k</code>的结点<code>v</code>到$l_j$层位置<code>m</code>的结点<code>u</code>有多个连接两个结点的边，如果将每一条边的权重视为两个结点间信息传递的一部分，那么可以将该路径中所有边的权重相乘来计算有多少信息从<code>v</code>传递到了<code>u</code>。因为<code>attention</code>图的两结点间可能不止一条边，所以为了计算从<code>v</code>到<code>u</code>传递的信息总量，对两结点间所有可能的路径求和。在实际计算时，为了计算从$l_i$<br>到$l_j$的<code>attention</code>，递归地将下面所有层的注意力权重矩阵相乘</p><p>$$<br>\tilde{A}&#x3D;\begin{cases}<br>A(l_i)\tilde{A}(l_(i-1)), &amp; i&gt;j \<br>A(l_i), &amp; i&#x3D;j<br>\end{cases}<br>$$</p><p>在上述等式中，$\tilde{A}$是<code>Attention Rollout</code>，$A$是原始的<code>attention</code>，乘法运算是矩阵乘法。在计算输入<code>attention</code>时，将<code>j</code>设置成<code>0</code>。</p><p>总之，<code>Attention Rollout</code>就是计算从底层到高层的<code>Attention</code>矩阵的乘积</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>[1].Sofia Serrano and Noah A. Smith. 2019. Is attention interpretable? In proceedings of the 57th Annual Meeting of the Association for Computational Linguistics. Association for Computational Linguistics</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>自然语言处理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机视觉</tag>
+      
+      <tag>人工智能</tag>
+      
+      <tag>自然语言处理</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>torch.autograd.variable</title>
+    <link href="/2021/08/03/torch-autograd-variable/"/>
+    <url>/2021/08/03/torch-autograd-variable/</url>
+    
+    <content type="html"><![CDATA[<p>在<code>PyTorch0.4.0</code>之后<code>Variable</code> 已经被<code>PyTroch</code>弃用</p><p><code>Variable</code>不再是张量使用<code>autograd</code>的必要条件</p><p>只需要将张量的<code>requires_grad</code>设为<code>True</code>该张量就会自动支持<code>autograd</code>运算</p><p>在新版的<code>PyTorch</code>中<code>Variable(tensor)</code>和<code>Varialbe(tensor, requires_grad)</code>还能继续使用，但是返回的是<code>tensor</code>变量，而不是<code>Variable</code>变量</p><p>使用<code>Variable.data</code>的效果和使用<code>tensor.data</code>一样</p><p>诸如<code>Variable.backward()</code>，<code>Variable.detach()</code>，<code>Varialbe.register_hook()</code>等方法直接移植到了<code>tensor</code>上，在<code>tensor</code>上可以直接使用同名的函数</p><p>此外，现在可以直接使用<code>torch.randn()</code>，<code>torch.zeros()</code>，<code>torch.ones()</code>等工厂方法直接用<code>requires_gard=True</code>属性生成<code>tensor</code>，例如</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">autograd_tensor</span> = torch.randn((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>), requires_grad=True)<br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://pytorch.org/docs/stable/autograd.html">https://pytorch.org/docs/stable/autograd.html</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pytorch</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>pytorch</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>pandas stack</title>
+    <link href="/2021/07/21/pandas-stack/"/>
+    <url>/2021/07/21/pandas-stack/</url>
+    
+    <content type="html"><![CDATA[<p>堆叠一个<code>DataFrame</code>意味着将最内层的列索引移动为最内层的行索引。其逆运算叫做反叠加。</p><p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/.png" alt="图1"></p><p>堆叠（<code>stack</code>）是什么?-如果我们有多个索引列，通过将最内层的列级别移动到最内层的行级别来减少数据集列。所以堆栈是将<code>cols</code>的索引变到<code>rows</code>(最里面的)。如图2所示，经过<code>pt.stack()</code>操作后<code>marital_status</code>从列索引变为行索引</p><p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/.png" alt="图2"></p><p>反叠加（<code>unstack</code>）是什么?-如果我们有多索引行，我们通过移动最内层的行级别到最内层的列级别来减少数据集行。所以<code>unstack</code>是将<code>rows</code>的索引变到<code>cols</code>的索引(最里面的)。如图3所示，经过<code>pt.stack().unstack()</code>操作后，<code>marital_status</code>又从行索引变回列索引</p><p><img src="/2025/11/01/Android-%E6%97%A7%E7%89%88%E6%9C%AC%E5%8C%85%E9%97%AE%E9%A2%98/.png" alt="图3"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>pandas</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>pandas</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Transformer可视化概念理解</title>
+    <link href="/2021/06/17/Transformer%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/"/>
+    <url>/2021/06/17/Transformer%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p>最近需要对<code>Transformer</code>网络的中间层进行可视化，便于分析网络，在此记录一些常用到的概念。</p><p>常用到的方法主要是<code>Attention Rollout</code>和<code>Attention Flow</code>，这两种方法都对网络中每一层的<code>token attentions</code>进行递归计算，主要的不同在于假设低层的<code>attention weights</code>如何影响到高层的信息流，以及是否计算<code>token attentions</code>之间的相关性。</p><p>为了计算信息从输入层传播到高层的嵌入方式，关键是考虑模型中残差连接以及<code>attention</code>权重。在一个<code>Transformer</code>块中，<code>self-attention</code>和前向网络都被残差连接包裹，也就是将这些模块的输入添加到输出中。当仅使用<code>attention weights</code>来近似<code>Transformers</code>中的信息流时，就忽略了残差连接。但是残差连接连接了不同层的对应位置，所以在计算<code>attention rollout</code>和<code>attention flow</code>时，用额外的权重来表示残差连接。给定一个有残差连接的<code>attention</code>模块，将$l+1$层的值计算为$V_{l+1}&#x3D;V_l+W_attV_l$，其中$W_att$是<code>attention</code>矩阵，因此有$V_{l+1}&#x3D;(W_att+I)V_l$。所以，为了解释残差连接，给<code>attention</code>矩阵增加一个单位矩阵，并且对新矩阵的权重重新规范化。最后生成**<span style="color:red">由残差连接更新的原始矩阵</span>**$A&#x3D;0.5W_att+0.5I$。</p><p>此外，分析单个<code>attention head</code>需要考虑输入在通过<code>Transformer</code>块中位置级的前向网络后，各个<code>heads</code>之间混合的信息。使用<code>Attention Rollout</code>和<code>Attention Flow</code>能够单独分析每个<code>attention head</code>中的信息，但是为了简便，一般在所有的<code>attention heads</code>上平均每一层的<code>attention</code>来进行分析。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/YoJayC/article/details/119702488?spm=1001.2014.3001.5502">https://blog.csdn.net/YoJayC/article/details/119702488?spm=1001.2014.3001.5502</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>可视化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>可视化</tag>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>kwargs.pop</title>
+    <link href="/2021/06/14/kwargs-pop/"/>
+    <url>/2021/06/14/kwargs-pop/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://docs.python.org/3/library/stdtypes.html#dict.pop">pop(key[, default])</a> if key is in the dictionary, remove it and return its value, else return default. If default is not given and key is not in the dictionary, a KeyError is raised.</p></blockquote><p><code>kwargs.pop()</code>的作用是将字典中指定的键移除，并返回其对应的值。如果字典中没有指定的键，则返回默认值，没有设置默认值的话就报错。</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">d = &#123;<span class="hljs-string">&#x27;a&#x27;</span> :1, <span class="hljs-string">&#x27;c&#x27;</span> :2&#125;<br><span class="hljs-built_in">print</span>(d.pop(<span class="hljs-string">&#x27;c&#x27;</span>, 0)) # return 2<br><span class="hljs-built_in">print</span>(d) # returns &#123;<span class="hljs-string">&#x27;a&#x27;</span>: 1&#125;<br><span class="hljs-built_in">print</span>(d.<span class="hljs-built_in">get</span>(<span class="hljs-string">&#x27;c&#x27;</span>, 0)) # return 0<br></code></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnpython.com/qa/50845">https://www.cnpython.com/qa/50845</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>python</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>ViT Patch Embedding理解</title>
+    <link href="/2021/06/11/ViT-Patch-Embedding%E7%90%86%E8%A7%A3/"/>
+    <url>/2021/06/11/ViT-Patch-Embedding%E7%90%86%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<p><code>ViT(Vision Transformer)</code>中的<code>Patch Embedding</code>用于将原始的2维图像转换成一系列的1维<code>patch embeddings</code>。</p><p>假设输入图像的维度为 $H \times W \times C$，分别表示高，宽和通道数。</p><p><code>Patch Embeeding</code>操作将输入图像分成 $N$ 个大小为 $P^2C$ 的 <code>patch</code>，并<code>reshape</code>成维度为 $N \times (P^2C)$ 的<code>patches</code>块 $x_p, x_p \in \mathbb{R}^(N \times (P^2C))$。其中 $N&#x3D;\frac{HW}{P^2}$ ，表示分别在二维图像的宽和高上按 $P$ 进行划分，每个<code>patch</code>块的维度为 $P^2C$，再通过线性变换将<code>patches</code>投影到维度为 $D$ 的空间上，也就是直接将原来大小为 $H \times W \times C$ 的二维图像展平成 $N$ 个大小为 $P^2C$ 的一维向量 $x_p^’, x_p^’ \in \mathbb{R}^(N \times (P^2C))$，</p><p>上述的操作等价于对输入图像 $H \times W \times C$ 执行一个内核大小为 $P \times P$，步长为 $P$ 的卷积操作（虽然等价，但是<code>ViT</code>逻辑上并不包含任何卷积操作）。</p><p>卷积的输出计算公式为 $\left \lfloor \frac{n+2p-f}{s}+1 \right \rfloor$，将输入图像的宽和高分别带入得到 $\left \lfloor \frac{H+O-P}{P}+1 \right \rfloor &#x3D; \left \lfloor \frac{H}{P} \right \rfloor, \left \lfloor \frac{W+O-P}{P}+1 \right \rfloor &#x3D; \left \lfloor \frac{W}{P} \right \rfloor$，相乘之后就得到 $N$，等价于将输入图像划分成 $N$ 个大小为 $P^2C$ 的 <code>patch</code> 块。</p><p>代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">PatchEmbed</span>(nn.Module):<br>  <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    Image to Patch Embedding</span><br><span class="hljs-string">  &quot;&quot;&quot;</span><br><br>  <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, img_size=<span class="hljs-number">224</span>, patch_size=<span class="hljs-number">16</span>, in_chans=<span class="hljs-number">3</span>, embed_dim=<span class="hljs-number">768</span></span>):<br>    <span class="hljs-built_in">super</span>().__init__()<br>    img_size = (img_size, img_size)<br>    patch_size = (patch_size, patch_size)<br>    num_patches = (img_size[<span class="hljs-number">1</span>] // patch_size[<span class="hljs-number">1</span>]) * (img_size[<span class="hljs-number">0</span>] // patch_size[<span class="hljs-number">0</span>])<br>    <span class="hljs-variable language_">self</span>.img_size = img_size<br>    <span class="hljs-variable language_">self</span>.patch_size = patch_size<br>    <span class="hljs-variable language_">self</span>.num_patches = num_patches<br><br>    <span class="hljs-comment"># </span><br>    <span class="hljs-comment"># embed_dim表示切好的图片拉成一维向量后的特征长度</span><br>    <span class="hljs-comment"># </span><br>    <span class="hljs-comment"># 图像共切分为N = HW/P^2个patch块</span><br>    <span class="hljs-comment"># 在实现上等同于对reshape后的patch序列进行一个PxP且stride为P的卷积操作</span><br>    <span class="hljs-comment"># output = &#123;[(n+2p-f)/s + 1]向下取整&#125;^2</span><br>    <span class="hljs-comment"># 即output = &#123;[(n-P)/P + 1]向下取整&#125;^2 = (n/P)^2</span><br>    <span class="hljs-comment"># </span><br>    <span class="hljs-variable language_">self</span>.proj = nn.Conv2d(in_chans, embed_dim, kernel_size=patch_size, stride=patch_size)<br><br>  <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>    B, C, H, W = x.shape<br>    <span class="hljs-keyword">assert</span> H == <span class="hljs-variable language_">self</span>.img_size[<span class="hljs-number">0</span>] <span class="hljs-keyword">and</span> W == <span class="hljs-variable language_">self</span>.img_size[<span class="hljs-number">1</span>], \<br>      <span class="hljs-string">f&quot;Input image size (<span class="hljs-subst">&#123;H&#125;</span>*<span class="hljs-subst">&#123;W&#125;</span>) doesn&#x27;t match model (<span class="hljs-subst">&#123;self.img_size[<span class="hljs-number">0</span>]&#125;</span>*<span class="hljs-subst">&#123;self.img_size[<span class="hljs-number">1</span>]&#125;</span>).&quot;</span><br>    x = <span class="hljs-variable language_">self</span>.proj(x).flatten(<span class="hljs-number">2</span>).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">return</span> x  <span class="hljs-comment"># x.shape is [8, 196, 768]</span><br></code></pre></td></tr></table></figure><p>其中卷积操作<code>self.proj</code>之后接着一步<code>flatten(2)</code>展平操作，表示将<code>patch</code>投影到维度为 $D&#x3D;P^2$ 的空间上。最后进行转置操作，表示输入图像经过转换后生成长度为 <code>196</code>($14 \times 14$ ，表示共有<code>196</code>个<code>patches</code>)，维度为<code>768</code>($3 \times 16 \times 16$)的特征向量。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://zhuanlan.zhihu.com/p/356155277">https://zhuanlan.zhihu.com/p/356155277</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机视觉</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机视觉</tag>
       
     </tags>
     

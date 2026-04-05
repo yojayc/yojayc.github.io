@@ -2,6 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yojayc.github.io/2021/06/11/ViT-Patch-Embedding%E7%90%86%E8%A7%A3/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/06/14/kwargs-pop/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/06/17/Transformer%E5%8F%AF%E8%A7%86%E5%8C%96%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/07/21/pandas-stack/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/08/03/torch-autograd-variable/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/08/14/Attention-Rollout/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/03/Could-NOT-find-OpenSSL-missing-OPENSSL-LIBRARIES/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/04/Linux%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%BA%93%E5%87%BA%E9%94%99/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/08/%E9%9D%9Eroot%E8%A7%A3%E5%86%B3ImportError/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/08/docker-%E4%BF%9D%E5%AD%98%E9%95%9C%E5%83%8F/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/09/windows10-wsl-set-version-2-Error-0xffffffff/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/09/Error-response-from-daemon-manifest-for-nvidia-cuda-latest-not-found-manifest-unknown-manifest/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/10/Dockerfile-unable-to-access-%E2%80%98-git-%E2%80%98-Failed-to-connect-to-gitlab-com/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/10/Dockerfile-pip3-install-cannot-assign-requested-address/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/11/Dockerfile%E5%AE%89%E8%A3%85python3-7/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/11/Depends-gcc-5-base-5-3-1-14ubuntu2-but-5-4-0-6ubuntu1-16-04-11-is-to-be-installed/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/11/Dockerfile%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F%E9%80%89%E6%8B%A9/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/12/Spherical-Package%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/09/26/%E4%B8%8D%E4%BD%BF%E7%94%A8anaconda%E5%AE%89%E8%A3%85pyembree/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/10/28/python%E5%88%97%E8%A1%A8%E8%A7%A3%E6%9E%90%E5%AE%9E%E4%BE%8B/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/11/19/pytorch%E4%B8%ADtensor%E8%BF%9B%E8%A1%8Creshape%E6%93%8D%E4%BD%9C%E5%90%8E%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E9%A1%BA%E5%BA%8F/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2022/03/21/pytorch-set-epoch-%E6%96%B9%E6%B3%95/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2021/12/05/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/2022/03/31/Abstract-must-be-defined-before-maketitle-command/</loc>
+    
+    <lastmod>2026-04-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yojayc.github.io/about/index.html</loc>
     
     <lastmod>2026-04-05</lastmod>
@@ -472,12 +640,12 @@
   </url>
   
   <url>
-    <loc>http://yojayc.github.io/tags/HTML/</loc>
+    <loc>http://yojayc.github.io/tags/%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2026-04-05</lastmod>
   </url>
   
   <url>
-    <loc>http://yojayc.github.io/tags/%E4%BB%A3%E7%A0%81%E7%90%86%E8%A7%A3/</loc>
+    <loc>http://yojayc.github.io/tags/HTML/</loc>
     <lastmod>2026-04-05</lastmod>
   </url>
   
@@ -506,6 +674,86 @@
     <lastmod>2026-04-05</lastmod>
   </url>
   
+  <url>
+    <loc>http://yojayc.github.io/tags/latex/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E8%AE%BA%E6%96%87/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/pytorch/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/python/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/docker/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/linux/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E5%8C%85%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/c/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/windows/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/tags/pandas/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
 
   
   <url>
@@ -519,12 +767,12 @@
   </url>
   
   <url>
-    <loc>http://yojayc.github.io/categories/HTML/</loc>
+    <loc>http://yojayc.github.io/categories/JavaScript/</loc>
     <lastmod>2026-04-05</lastmod>
   </url>
   
   <url>
-    <loc>http://yojayc.github.io/categories/JavaScript/</loc>
+    <loc>http://yojayc.github.io/categories/HTML/</loc>
     <lastmod>2026-04-05</lastmod>
   </url>
   
@@ -535,6 +783,61 @@
   
   <url>
     <loc>http://yojayc.github.io/categories/%E6%97%A5%E8%AF%AD/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/latex/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/pytorch/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/python/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/linux/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/c/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/docker/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</loc>
+    <lastmod>2026-04-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yojayc.github.io/categories/pandas/</loc>
     <lastmod>2026-04-05</lastmod>
   </url>
   
