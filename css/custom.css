@@ -1,4 +1,38 @@
-#web_bg {
-   background: url('/img/truman/itcouldhappentoyou.png') no-repeat center center;
-   background-size: cover;
+/* 视频容器 */
+#banner-video-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 让文字在视频上面 */
+.page-header {
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* 文字加阴影，避免看不清 */
+.page-header .display-4,
+.page-header .text-muted {
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+/* 打印机光标效果 */
+.typing-cursor {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%,50%{opacity:1}
+  51%,100%{opacity:0}
 }
