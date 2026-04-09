@@ -251,6 +251,69 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2021/09/11/Dockerfile%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F%E9%80%89%E6%8B%A9/" target="_blank">
+          Dockerfile基础镜像选择
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/11/Dockerfile%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F%E9%80%89%E6%8B%A9/" target="_blank">
+        <div>
+          Dockerfile的最开始都是From xxx，表示选择的基础镜像是什么版本，可以在nvidia的gitlab上选择版本。需要注意nvidia/cuda:latest的表示方式已经被弃用，可以看前面写的文章 例如 1FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04  其中10.0是指cuda的版本 cudnn7指与cuda10.0对应的cudnn版本
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-11 21:32" pubdate>
+              2021-09-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+              <a href="/tags/docker/">#docker</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2021/09/11/Depends-gcc-5-base-5-3-1-14ubuntu2-but-5-4-0-6ubuntu1-16-04-11-is-to-be-installed/" target="_blank">
           Depends: gcc-5-base (= 5.3.1-14ubuntu2) but 5.4.0-6ubuntu1~16.04.11 is to be installed
         </a>
@@ -771,67 +834,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2021-09-04 12:26" pubdate>
               2021-09-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/linux/" class="category-chain-item">linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/linux/">#linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/09/03/Could-NOT-find-OpenSSL-missing-OPENSSL-LIBRARIES/" target="_blank">
-          Could NOT find OpenSSL (missing: OPENSSL_LIBRARIES)
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/03/Could-NOT-find-OpenSSL-missing-OPENSSL-LIBRARIES/" target="_blank">
-        <div>
-          手动安装cmake，执行./bootstrap后出现标题所示错误提示，因为这一步出错，所以后面的步骤都无法继续进行 一开始以为是服务器上没有装openssl，使用openssl version命令发现有对应的版本，但是路径下没有include等文件夹 接着手动安装openssl，并且设置临时系统变量 12export OPENSSL_ROOT_DIR=/data/lib/openssl-1.1.1
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-03 20:36" pubdate>
-              2021-09-03
             </time>
           </div>
         
