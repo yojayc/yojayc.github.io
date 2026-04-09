@@ -251,6 +251,71 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2021/09/12/Spherical-Package%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/" target="_blank">
+          Spherical Package编译记录
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/12/Spherical-Package%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/" target="_blank">
+        <div>
+          最近要用到Spherical-Package，这个包有两种安装方法，一种是通过Docker安装，另一种是直接手动安装。但是服务器上网不方便，所以一开始先手动装。 手动装的问题基本上都是没有root权限、安装版本不匹配、依赖错误等。最后经过一番折腾装好了，但是测试的时候还是失败，也找不到问题出在哪里。猜测可能是手动装的cgal有问题，因为通过apt-get安装的cgal版本太低，所以只能手动装，但是
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-12 15:45" pubdate>
+              2021-09-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/linux/" class="category-chain-item">linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+              <a href="/tags/docker/">#docker</a>
+            
+              <a href="/tags/%E5%8C%85%E5%AE%89%E8%A3%85/">#包安装</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2021/09/11/Dockerfile%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F%E9%80%89%E6%8B%A9/" target="_blank">
           Dockerfile基础镜像选择
         </a>
@@ -773,67 +838,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2021-09-08 11:17" pubdate>
               2021-09-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/linux/" class="category-chain-item">linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/linux/">#linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/09/04/Linux%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%BA%93%E5%87%BA%E9%94%99/" target="_blank">
-          Linux手动安装库出错
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/04/Linux%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E5%BA%93%E5%87%BA%E9%94%99/" target="_blank">
-        <div>
-          服务器上没有root权限，管理员用命令帮忙装的版本太低了，所以需要手动安装高版本的库 但是装完之后发现lib目录下只有.cmake文件，没有.so文件 问题在于cmake之后没有执行make就直接执行make install了。在cmake后执行make，再执行make install后安装正常 12345cd $HOME/CGAL-5.3mkdir buildcd buildcmake ..
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-04 12:26" pubdate>
-              2021-09-04
             </time>
           </div>
         
