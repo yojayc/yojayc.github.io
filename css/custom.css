@@ -16,6 +16,21 @@
   object-position: center;
 }
 
+/* 在主题CSS文件中添加 */
+.clustrmaps-sidebar {
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+/* 调整地图大小 */
+#clustrmaps-globe {
+  width: 100% !important;
+  height: 200px !important;
+}
+
 /* 让文字在视频上面 */
 .page-header {
   position: relative;
