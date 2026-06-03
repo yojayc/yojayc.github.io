@@ -251,6 +251,67 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2022/03/21/pytorch-set-epoch-%E6%96%B9%E6%B3%95/" target="_blank">
+          pytorch set_epoch()方法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/21/pytorch-set-epoch-%E6%96%B9%E6%B3%95/" target="_blank">
+        <div>
+          在分布式模式下，需要在每个 epoch 开始时调用 set_epoch() 方法，然后再创建 DataLoader 迭代器，以使 shuffle 操作能够在多个 epoch 中正常工作。 否则，dataloader 迭代器产生的数据将始终使用相同的顺序。 1234567sampler = DistributedSampler(dataset) if is_distributed else None
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-21 21:15" pubdate>
+              2022-03-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/pytorch/" class="category-chain-item">pytorch</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/pytorch/">#pytorch</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2021/12/05/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" target="_blank">
           深度学习基础知识
         </a>
@@ -801,69 +862,6 @@
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/docker/">#docker</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/09/10/Dockerfile-unable-to-access-%E2%80%98-git-%E2%80%98-Failed-to-connect-to-gitlab-com/" target="_blank">
-          Dockerfile unable to access ‘.git/‘: Failed to connect to gitlab.com
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/10/Dockerfile-unable-to-access-%E2%80%98-git-%E2%80%98-Failed-to-connect-to-gitlab-com/" target="_blank">
-        <div>
-          问题在命令行手动build一个dockerfile时无法连接到git。 Dockerfile中的系统和本地的不同，适用于本地的配置直接在Dockerfile中使用无效 12git config --global http.proxy &#x27;http://172.31.xx.xx:808&#x27;git config --global https.proxy &#x27;https://17
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-10 10:51" pubdate>
-              2021-09-10
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/linux/" class="category-chain-item">linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/linux/">#linux</a>
             
               <a href="/tags/docker/">#docker</a>
             

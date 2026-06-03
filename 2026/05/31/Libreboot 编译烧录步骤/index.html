@@ -23,25 +23,28 @@
   <meta name="author" content="Truman">
   <meta name="keywords" content="chinese, Truman, supervised, human rights, Cultural Revolution">
   
-    <meta name="description" content="自动词和他动词自动词：表达现象、状态，不关心做动作的人 他动词：强调动作、行为，强调是谁做的 ドアが閉（し）まりました [自动词]描述门关的现象 [私は]ドアを閉めました [他动词]强调我关了门 名词を他动词電気（でんき）を消（け）します我关灯 玩具（おもちゃ）を壊（こわ）しますた我把玩具弄坏了  语序和中文相反  名词が自动词電気が消（き）えました熄灯了&#x2F;灯灭了 玩具が壊れました玩具坏">
+    <meta name="description" content="注意事项 准备 SOP8 烧录夹 和 RaspBerry Pi PICO 开发板  读取和烧录主板上的 BIOS 芯片前断开 CMOS 电池和内置电池接口  在联想官网下载 1.52 版本的 BIOS 升级程序，将 BIOS 更新为 1.52 版本  在 Linux 系统环境下进行编译和烧录   编译步骤原生BIOS处理 使用下述命令将 1.52 版本的 BIOS 升级程序重命名为 t480_bi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日语自动词他动词">
-<meta property="og:url" content="http://yojayc.github.io/2026/03/19/%E6%97%A5%E8%AF%AD%E8%87%AA%E5%8A%A8%E8%AF%8D%E4%BB%96%E5%8A%A8%E8%AF%8D/index.html">
+<meta property="og:title" content="Libreboot 编译烧录步骤">
+<meta property="og:url" content="http://yojayc.github.io/2026/05/31/Libreboot%20%E7%BC%96%E8%AF%91%E7%83%A7%E5%BD%95%E6%AD%A5%E9%AA%A4/index.html">
 <meta property="og:site_name" content="Chinese Truman">
-<meta property="og:description" content="自动词和他动词自动词：表达现象、状态，不关心做动作的人 他动词：强调动作、行为，强调是谁做的 ドアが閉（し）まりました [自动词]描述门关的现象 [私は]ドアを閉めました [他动词]强调我关了门 名词を他动词電気（でんき）を消（け）します我关灯 玩具（おもちゃ）を壊（こわ）しますた我把玩具弄坏了  语序和中文相反  名词が自动词電気が消（き）えました熄灯了&#x2F;灯灭了 玩具が壊れました玩具坏">
+<meta property="og:description" content="注意事项 准备 SOP8 烧录夹 和 RaspBerry Pi PICO 开发板  读取和烧录主板上的 BIOS 芯片前断开 CMOS 电池和内置电池接口  在联想官网下载 1.52 版本的 BIOS 升级程序，将 BIOS 更新为 1.52 版本  在 Linux 系统环境下进行编译和烧录   编译步骤原生BIOS处理 使用下述命令将 1.52 版本的 BIOS 升级程序重命名为 t480_bi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-03-19T01:06:50.000Z">
-<meta property="article:modified_time" content="2026-03-23T02:17:34.090Z">
+<meta property="og:image" content="http://yojayc.github.io/2022/03/31/Abstract-must-be-defined-before-maketitle-command/">
+<meta property="og:image" content="http://yojayc.github.io/2022/03/31/Abstract-must-be-defined-before-maketitle-command/">
+<meta property="article:published_time" content="2026-05-31T12:05:51.000Z">
+<meta property="article:modified_time" content="2026-05-31T13:44:47.750Z">
 <meta property="article:author" content="Truman">
-<meta property="article:tag" content="动词">
-<meta property="article:tag" content="日语">
+<meta property="article:tag" content="BIOS">
+<meta property="article:tag" content="Libreboot">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://yojayc.github.io/2022/03/31/Abstract-must-be-defined-before-maketitle-command/">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>日语自动词他动词 - Chinese Truman</title>
+  <title>Libreboot 编译烧录步骤 - Chinese Truman</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,7 +225,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="日语自动词他动词"></span>
+            <span id="subtitle" data-typed-text="Libreboot 编译烧录步骤"></span>
           
         </div>
 
@@ -233,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-03-19 09:06" pubdate>
-          2026年3月19日 上午
+        <time datetime="2026-05-31 20:05" pubdate>
+          2026年5月31日 晚上
         </time>
       </span>
     
@@ -246,7 +249,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          451 字
+          422 字
         
       </span>
     
@@ -323,113 +326,69 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">日语自动词他动词</h1>
+            <h1 id="seo-header">Libreboot 编译烧录步骤</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="自动词和他动词"><a href="#自动词和他动词" class="headerlink" title="自动词和他动词"></a>自动词和他动词</h1><p><strong>自动词</strong>：表达<span style="color:red"><strong>现象、状态</strong></span>，不关心做动作的人</p>
-<p><strong>他动词</strong>：强调<span style="color:red"><strong>动作、行为</strong></span>，强调是<strong>谁做的</strong></p>
-<p>ドアが閉（し）まりました [自动词]<br>描述门关的现象</p>
-<p>[私は]ドアを閉めました [他动词]<br>强调我关了门</p>
-<h1 id="名词を他动词"><a href="#名词を他动词" class="headerlink" title="名词を他动词"></a>名词<span style="color:red">を</span>他动词</h1><p>電気（でんき）を消（け）します<br>我关灯</p>
-<p>玩具（おもちゃ）を壊（こわ）しますた<br>我把玩具弄坏了</p>
-<blockquote>
-<p>语序和中文相反</p>
-</blockquote>
-<h1 id="名词が自动词"><a href="#名词が自动词" class="headerlink" title="名词が自动词"></a>名词<span style="color:red">が</span>自动词</h1><p>電気が消（き）えました<br>熄灯了&#x2F;灯灭了</p>
-<p>玩具が壊れました<br>玩具坏了</p>
-<blockquote>
-<p>语序和中文一样</p>
-</blockquote>
-<h1 id="造句"><a href="#造句" class="headerlink" title="造句"></a>造句</h1><p>这个玩具是谁弄坏的？　壊す[他动词]　壊れる[自动词]<br>この玩具は誰が壊しましたか<br>誰が　この玩具を壊しましたか<br>　　　　　　　　壊したの</p>
-<p>（阿飞老师掉进泥坑）衣服脏了　汚（よご）す[他动词]　汚れる[自动词]　転（ころ）び込（こ）む [摔进去、陷进去]<br>トビ先生は　泥沼（どろぬま）に　転びこんで、　服が汚れました</p>
-<h1 id="名词を自动词"><a href="#名词を自动词" class="headerlink" title="名词を自动词"></a>名词<span style="color:red">を</span>自动词</h1><p>当表示<strong>经过的场所、离开的地点和特殊情况</strong>时，<strong>名词+<span style="color:red">を</span>+自动词</strong></p>
-<h2 id="经过的场所（移动性自动词）"><a href="#经过的场所（移动性自动词）" class="headerlink" title="经过的场所（移动性自动词）"></a>经过的场所（移动性自动词）</h2><p>歩（ある）く、登（のぼ）る、渡（わた）る、通（とお）る、走（はし）る、散歩（さんぽ）する、横切（よこぎ）る、曲（ま）がる、泳（およ）ぐ、飛（と）ぶ</p>
-<p>公園（こうえん）を散歩する<br>散步时经过公园</p>
-<p>川（かわ）を渡る<br>从桥上&#x2F;坐船经过河</p>
-<p>廊下（ろうか）を走（はし）らないでください<br>不要在走廊上跑</p>
-<h2 id="离开的地点"><a href="#离开的地点" class="headerlink" title="离开的地点"></a>离开的地点</h2><p>故郷（こきょう）を離（はな）れる<br>离开故乡</p>
-<p>学校（がっこう）を卒業（そつぎょう）する<br>毕业了</p>
-<p>家（いえ）を出（で）る<br>从家出发了</p>
-<h2 id="特殊"><a href="#特殊" class="headerlink" title="特殊"></a>特殊</h2><p><strong>バレー</strong>を踊（おど）る</p>
-<blockquote>
-<p>踊る具有<strong>移动词性</strong></p>
-<p><strong>同族目的语</strong>，可以用を（<strong>踊り</strong>を<strong>踊る</strong>）</p>
-</blockquote>
-<h1 id="如何区分"><a href="#如何区分" class="headerlink" title="如何区分"></a>如何区分</h1><p>是<strong>他动词</strong>的概率：　以<span style="color:red"><strong>す</strong></span>结尾　&gt;　<strong>え段 + る</strong>　&gt; 其他　</p>
-<style>
-	.center {
-		width: auto;
-		display: table;
-		margin-left: auto;
-		margin-right: auto;
-	}
+                <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><ul>
+<li><p>准备 <code>SOP8 烧录夹</code> 和 <code>RaspBerry Pi PICO 开发板</code></p>
+</li>
+<li><p><span style="color:red"><strong>读取和烧录主板上的 <code>BIOS</code> 芯片前断开 <code>CMOS</code> 电池和内置电池接口</strong></span></p>
+</li>
+<li><p>在<a target="_blank" rel="noopener" href="https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-t-series-laptops/thinkpad-t480-type-20l5-20l6/downloads/ds502355-bios-update-utility-bootable-cd-for-windows-10-64-bit-linux-thinkpad-t480?category=BIOS/UEFI"><strong>联想官网</strong></a>下载 <code>1.52</code> 版本的 <code>BIOS</code> 升级程序，将 <code>BIOS</code> 更新为 <code>1.52</code> 版本</p>
+</li>
+<li><p>在 <code>Linux</code> 系统环境下进行编译和烧录</p>
+</li>
+</ul>
+<h1 id="编译步骤"><a href="#编译步骤" class="headerlink" title="编译步骤"></a>编译步骤</h1><h2 id="原生BIOS处理"><a href="#原生BIOS处理" class="headerlink" title="原生BIOS处理"></a>原生BIOS处理</h2><ol>
+<li>使用下述命令将 <code>1.52</code> 版本的 <code>BIOS</code> 升级程序重命名为 <code>t480_bios_update.img</code></li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">geteltorito</span> -o t480_bios_update.img n24ur39w.iso<br></code></pre></td></tr></table></figure>
 
-</style>
+<ol start="2">
+<li>使用 <code>lsblk</code> 找到 <code>u盘</code> 的符号名，再使用 <code>dd</code> 命令将升级程序写到 <code>u盘</code></li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">lsblk<br>dd <span class="hljs-attribute">if</span>=t480_bios_update.img <span class="hljs-attribute">of</span>=/dev/sdb <span class="hljs-attribute">bs</span>=4M <span class="hljs-attribute">conv</span>=fsync <span class="hljs-attribute">status</span>=progress<br></code></pre></td></tr></table></figure>
 
-<div class="center">
-	<table align="center">
-		<tbody align="center" valign="center">
-			<tr>
-				<th>类形</th>
-				<th colspan=2>他动词</th>
-				<th colspan=2>自动词</th>
-			</tr>
-			<tr>
-				<th rowspan=4>以<span style="color:red">す</span>结尾</th>
-				<td>壊<b>す</b></td>
-				<td>こわす</td>
-				<td>壊れる</td>
-				<td>こわれる</td>
-			</tr>
-			<tr>
-				<td>消<b>す</b></td>
-				<td>けす</td>
-				<td>消える</td>
-				<td>きえる</td>
-			</tr>
-			<tr>
-				<td>落と<b>す</b></td>
-				<td>おとす</td>
-				<td>落ちる</td>
-				<td>おちる</td>
-			</tr>
-			<tr>
-				<td>治<b>す</b></td>
-				<td>なおす</td>
-				<td>治る</td>
-				<td>なおる</td>
-			</tr>
-			<tr>
-				<th rowspan=4><span style="color:red">え</span>段 + <span style="color:red">る</span></th>
-				<td>掛<b>ける</b></td>
-				<td>かける</td>
-				<td>掛かる</td>
-				<td>かかる</td>
-			</tr>
-			<tr>
-				<td>付<b>ける</b></td>
-				<td>つける</td>
-				<td>付く</td>
-				<td>つく</td>
-			</tr>
-			<tr>
-				<td>止<b>める</b></td>
-				<td>とめる</td>
-				<td>止まる</td>
-				<td>とまる</td>
-			</tr>
-			<tr>
-				<td>閉<b>める</b></td>
-				<td>しめる</td>
-				<td>閉まる</td>
-				<td>しまる</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<ol start="3">
+<li>插上 <code>u盘</code>，重启电脑，按 <code>ENTER</code> 键进入 <code>Startup Interrupt Menu</code>，按 <code>F12</code>，选择 <code>u盘</code>，按数字 <code>2</code> 进行升级</li>
+</ol>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ol>
+<li>下载 <code>lbmk</code> 进行编译</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;John Doe&quot;</span><br>git config --global user.email johndoe@example.com<br>git <span class="hljs-built_in">clone</span> https://codeberg.org/libreboot/lbmk<br><span class="hljs-built_in">cd</span> lbmk<br><span class="hljs-built_in">export</span> XBMK_THREADS=4<br><span class="hljs-built_in">sudo</span> ./mk dependencies debian/ubuntu/mint  <span class="hljs-comment"># 根据自己的操作系统进行选择</span><br></code></pre></td></tr></table></figure>
 
+<ol start="2">
+<li><p>在 <a target="_blank" rel="noopener" href="https://mirrors.mit.edu/libreboot/stable/26.01rev1/roms/"><code>roms</code> 镜像网站</a> 中下载自己电脑对应的版本 <code>libreboot-xx_t480_vfsp_16mb.tar.xz</code> 和 <code>PICO</code> 对应的版本 <code>libreboot-xx_serprog_pico.tar.xz</code></p>
+</li>
+<li><p>解压 <code>PICO</code> 对应的版本，按住 <code>PICO</code> 上的按钮与电脑连接，将解压后与 <code>PICO</code> 对应的 <code>.uf2</code> 文件拷贝到 <code>RPI_RP2</code> 文件夹中</p>
+</li>
+</ol>
+<p><code>tar -xvf libreboot-xx_serprog_pico.tar.xz</code></p>
+<ol start="4">
+<li><p>使用 <code>dmesg</code> 查找 <code>PICO</code> 对应的符号名 <code>ttyACM0</code></p>
+</li>
+<li><p>使用 <code>inject</code> 命令将 <code>libreboot-xx_t480_vfsp_16mb.tar.xz</code> 注入到 <code>lbmk</code></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./mk inject libreboot-xx_t480_vfsp_16mp.tar.xz<br></code></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>解压编译生成的 <code>libreboot-xx_t480_vfsp_16mb.tar.xz</code> 文件</li>
+</ol>
+<h1 id="烧录"><a href="#烧录" class="headerlink" title="烧录"></a>烧录</h1><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p><img src="/2022/03/31/Abstract-must-be-defined-before-maketitle-command/" srcset="/img/loading.gif" lazyload alt="PICO 与烧录夹连线示意图"></p>
+<p><img src="/2022/03/31/Abstract-must-be-defined-before-maketitle-command/" srcset="/img/loading.gif" lazyload alt="PICO 实际连接图"></p>
+<p>将 <code>PICO</code> 按图示与 <code>BIOS</code> 进行连接</p>
+<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p>使用下述命令读取 <code>BIOS</code> 中原有的程序，对比两个文件的 <code>sha512sum</code> 值是否一致，确保连接稳定</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> falshrom -p serprog:dev=/dev/ttyACM0 -r /backup/t480b1.bin<br><span class="hljs-built_in">sudo</span> falshrom -p serprog:dev=/dev/ttyACM0 -r /backup/t480b2.bin<br><span class="hljs-built_in">sha512sum</span> /backup/t480b*.bin<br></code></pre></td></tr></table></figure>
+
+<h2 id="烧录-1"><a href="#烧录-1" class="headerlink" title="烧录"></a>烧录</h2><p>在 <code>libreboot-xx_t480_vfsp_16mb.tar.xz</code> 解压后的文件夹中选择 <code>seagrub_t480_vfsp_16mb_libgfxinit_txtmode_usqwerty.rom</code> 进行烧录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> flashrom -p serprog:dev=/dev/ttyACM0 -w seagrub_t480_vfsp_16mb_libgfxinit_txtmode_usqwerty.rom<br></code></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=iGKhsjvlSBQ">https://www.youtube.com/watch?v=iGKhsjvlSBQ</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=TuY9Nh-G4dI">https://www.youtube.com/watch?v=TuY9Nh-G4dI</a></p>
+<p><a target="_blank" rel="noopener" href="https://libreboot.org/docs/build">https://libreboot.org/docs/build</a></p>
 
                 
               </div>
@@ -448,7 +407,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%97%A5%E8%AF%AD/" class="category-chain-item">日语</a>
+  <a href="/categories/BIOS/" class="category-chain-item">BIOS</a>
   
   
 
@@ -463,9 +422,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%97%A5%E8%AF%AD/" class="print-no-link">#日语</a>
+        <a href="/tags/BIOS/" class="print-no-link">#BIOS</a>
       
-        <a href="/tags/%E5%8A%A8%E8%AF%8D/" class="print-no-link">#动词</a>
+        <a href="/tags/Libreboot/" class="print-no-link">#Libreboot</a>
       
     </div>
   
@@ -477,8 +436,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>日语自动词他动词</div>
-      <div>http://yojayc.github.io/2026/03/19/日语自动词他动词/</div>
+      <div>Libreboot 编译烧录步骤</div>
+      <div>http://yojayc.github.io/2026/05/31/Libreboot 编译烧录步骤/</div>
     </div>
     <div class="license-meta">
       
@@ -490,13 +449,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年3月19日</div>
+          <div>2026年5月31日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2026年3月23日</div>
+          <div>2026年5月31日</div>
         </div>
       
       
@@ -539,18 +498,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/03/19/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC34%E8%AF%BE/" title="新标日-初级-第34课">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">新标日-初级-第34课</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/03/13/%E6%96%B0%E6%A0%87%E6%97%A5-%E5%88%9D%E7%BA%A7-%E7%AC%AC33%E8%AF%BE/" title="新标日-初级-第33课">
-                        <span class="hidden-mobile">新标日-初级-第33课</span>
+                      <a href="/2026/05/21/%E6%96%B0%E6%A0%87%E6%97%A5-%E4%B8%AD%E7%BA%A7-%E7%AC%AC1%E8%AF%BE/" title="新标日-中级-第1课">
+                        <span class="hidden-mobile">新标日-中级-第1课</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
